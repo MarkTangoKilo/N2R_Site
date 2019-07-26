@@ -1,6 +1,6 @@
 /*RESET DEFAULTS*/
 /***************************************/
-html, body, article, section{
+html, body, article, section, span, footer{
 	margin:0;
 	padding:0;
 }
@@ -14,7 +14,6 @@ html, body, article, section{
 /*tags*/
 html{
 	height:550vh;
-	font-size:0px;
 }
 body{
 	height:100%;
@@ -27,6 +26,15 @@ article{
 section{
 	width:100%;
 	height:100vh;
+	font-size:0px;
+}
+span{
+	display:inline-block;
+}
+footer{
+	height:50vh;
+	width:100%;
+	bottom:0;
 }
 /*classes*/
 /*ids*/
@@ -43,21 +51,57 @@ section{
 
 /*SPECIAL CSS*/
 /***************************************/
+/*classes*/
+.smallcontainer{
+	height:100%;
+	width:50%;
+}
 /*home*/
-
+#logo_text{
+	/*... WHY!!!*/
+	padding-top:40vh;
+	min-height:20em;
+}
 /*about*/
 .pic{
 	height:100%;
-	width:30%;
+	width:40%;
+	font-size:5em;
 }
 .about{
 	height:100%;
-	width:70%;
+	width:60%;
+	font-size:5em;
 }
 /*dates*/
-
+#calendar{
+	width:50%;
+	height:100%;
+}
+#calendarInfo{
+	width:50%;
+	height:100%;
+}
 /*merch*/
-
+#shirts{
+	height:100%;
+	width:50%;
+}
+#otherthing{
+	height:50%;
+	width:100%;
+}
+#anotherthing{
+	height:50%;
+	width:100%;
+}
 /*music*/
-
+#musicLogo{
+	height:100%;
+	width:40%;
+}
+#musicList{
+	height:100%;
+	width:60%;
+}
 /***************************************/

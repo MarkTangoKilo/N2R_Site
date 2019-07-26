@@ -1,6 +1,6 @@
 /*RESET DEFAULTS*/
 /***************************************/
-html, body, article, section, span, footer{
+html, body, article, section, span, footer, nav{
 	margin:0;
 	padding:0;
 }
@@ -105,3 +105,66 @@ footer{
 	width:60%;
 }
 /***************************************/
+
+
+/*NAV*/
+#NextPage_div_container{
+    margin:0;
+    padding:0;
+    width:100%;
+    height: 50px;
+    position:fixed;
+}
+nav::after{
+    width:100%;
+    height:100%;
+    content:'';
+    display:table;
+    clear:both;
+}
+#NextPage_nav_list{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+}
+#NextPage_ul_list{
+    margin:0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+}
+#NextPage_ul_list li{
+    padding:9px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#NextPage_div_throwshade{
+    position:absolute;
+    width: 100%;
+    height:50px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgb(92, 89, 124));;
+    opacity: 0.5;
+}
+#NextPage_div_throwshade2{
+    position:absolute;
+    width: 100%;
+    height:50px;
+    background: darkslategray;
+    opacity: 0.5;
+}
+._NextPage_div_inside{
+    position:absolute;
+    width: 20%;
+    height:50px;
+}
+._NextPage_div_inside:hover, ._NextPage_div_inside:focus{
+    background: red;
+    opacity:0.3;
+}

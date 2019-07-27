@@ -24,7 +24,8 @@ function Scroll() {
         $("#nav_container").css({
             'position': 'fixed',
             'top': '0px',
-            'width': spot_width + 'px'
+            'width': spot_width + 'px',
+            'z-index': 100
         });
     }
     //if you're above the first article
@@ -33,7 +34,8 @@ function Scroll() {
             'width': spot_width + 'px',
             'position': 'absolute',
             'bottom': 0 + '%',
-            'top':spot_height - $("#nav_container").height() + 'px'
+            'top':spot_height - $("#nav_container").height() + 'px',
+            'z-index': 100
         });
     }
 }

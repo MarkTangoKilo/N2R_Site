@@ -1,3 +1,12 @@
+/*
+///HERE///
+    mobile setup: set it so that everything
+    will go from in a row to on top of each other. Add animations
+    for the nav bar to smoosh into a circle, spin it, and then send
+    it to the top corner once we hit the max level of skinny here
+*/
+
+
 /*RESET DEFAULTS*/
 /***************************************/
 html, body, article, section, span, footer, nav, ul, li{
@@ -7,38 +16,43 @@ html, body, article, section, span, footer, nav, ul, li{
 /***************************************/
 
 
-
-
 /*BASIC CONAINERS*/
 /***************************************/
 /*tags*/
 html{
     height:550vh;
     box-sizing:border-box;
+    z-index:1;
 }
 *, *:before, *:after{
+    /*for the box model fix*/
     box-sizing: inherit;
 }
 body{
 	height:100%;
-	width:100%;
+    width:100%;
+    z-index:2;
 }
 article{
 	width:100%;
-	min-height:100vh;
+    min-height:100vh;
+    z-index:3;
 }
 section{
 	width:100%;
 	height:100vh;
-	font-size:0px;
+    font-size:0px;
+    z-index: 4;
 }
 span{
-	display:inline-block;
+    display:inline-block;
+    
 }
 footer{
 	height:50vh;
 	width:100%;
-	bottom:0;
+    bottom:0;
+    z-index:5;
 }
 /*classes*/
 /*ids*/
@@ -49,8 +63,6 @@ footer{
 	height:100vh;
 }
 /***************************************/
-
-
 
 
 /*SPECIAL CSS*/
@@ -68,43 +80,78 @@ footer{
 }
 /*about*/
 .pic{
+
+    background-color:black;
+    opacity:.5;
+
 	height:100%;
 	width:40%;
 	font-size:5em;
 }
 .about{
+
+    background-color:yellow;
+    opacity:.5;
+
 	height:100%;
 	width:60%;
 	font-size:5em;
 }
 /*dates*/
 #calendar{
+
+    background-color:red;
+    opacity:.5;
+
 	width:50%;
 	height:100%;
 }
 #calendarInfo{
+    
+    background-color:green;
+    opacity:.5;
+
 	width:50%;
 	height:100%;
 }
 /*merch*/
 #shirts{
+    
+    background-color:orange;
+    opacity:.5;
+    
 	height:100%;
 	width:50%;
 }
 #otherthing{
+    background-color:blue;
+    opacity:.5;
+
 	height:50%;
 	width:100%;
 }
 #anotherthing{
+    
+    background-color:purple;
+    opacity:.5;
+    
 	height:50%;
 	width:100%;
 }
 /*music*/
 #musicLogo{
+    
+    background-color:magenta;
+    opacity:.5;
+    
 	height:100%;
 	width:40%;
 }
 #musicList{
+    
+    background-color:greenyellow;
+    opacity:.5;
+    
 	height:100%;
 	width:60%;
 }
@@ -112,10 +159,12 @@ footer{
 
 
 /*NAV*/
+/***************************************/
 .nav_container::after{
     content:'';
     display:table;
     clear:both;
+    z-index:100;
 }
 #nav{
     background:grey;
@@ -157,9 +206,11 @@ li.li_item{
     background-color: brown;
     opacity: 1;
 }
+/***************************************/
 
 
 /*TESTING*/
+/*
 #home{
     background-color:black;
 }
@@ -175,3 +226,4 @@ li.li_item{
 #dates{
     background-color:blue;
 }
+*/

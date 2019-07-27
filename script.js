@@ -3,6 +3,7 @@ var spot_height;
 var spot_width;
 
 $(document).ready(function () {
+    $(window).resize(Scroll);
     $(document).scroll(Scroll);
     Scroll();
     $("#nav_Home").click(function(){ScrollToHere(0)});

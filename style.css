@@ -46,7 +46,6 @@ section{
 }
 span{
     display:inline-block;
-    
 }
 footer{
 	height:50vh;
@@ -174,8 +173,11 @@ footer{
 #nav_container{
     float:right;
     height:50px;
-    width:100%;
+    width:0%;
+    opacity:0;
     background-color:yellow;
+    animation: grow_left 500ms 1 0s;
+    animation-fill-mode: forwards;
 }
 ul.ul_list{
     float:right;
@@ -202,37 +204,57 @@ li.li_item:hover{
 
 /*SPINNERS*/
 /***************************************/
+#spinners{
+    height:75px !important;
+    width:75px !important;
+    background-color:black;
+    position:fixed;
+    display:none;
+    bottom:10px;
+    left: 10px;
+    z-index:101;
+}
+.spinner{
 
+}
 /***************************************/
 
 
 /*MOBILE*/
 /***************************************/
 @media screen and (max-width: 600px){
-    #nav_container{
-        float:right;
-    }
-    #nav_container{
-        animation: shrink_right 500ms 1 500ms;
+    /*for the nav bar to disappear*/
+    #nav_container, li.li_items{
+        opacity:1;
+        width:100%;
+        animation: shrink_right 500ms 1;
         animation-fill-mode: forwards;
+        animation-direction: normal;
     }
-    li.li_item{
-        font-size:0px;
-    }
-    @keyframes shrink_right {
-        from{
-
-        }
-        to{
-            opacity:0;
-            width:0px;
-        }
-    }
-
-
-    
 }
 
+/*hide nav bar*/
+@keyframes shrink_right {
+    from{
+        opacity:1;
+        width:100%;   
+    }
+    to{
+        opacity:0;
+        width:0%;
+    }
+}
+/*show nav bar*/
+@keyframes grow_left {
+    from{
+        opacity:0;
+        width:0%;   
+    }
+    to{
+        opacity:1;
+        width:100%;
+    }
+}
 /***************************************/
 
 

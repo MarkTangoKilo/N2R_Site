@@ -1,6 +1,7 @@
 var curr_spot;
 var spot_height;
 var spot_width;
+var bFixed = new Boolean(false);
 
 $(document).ready(function () {
     $(window).resize(Scroll);
@@ -17,27 +18,32 @@ function Scroll() {
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
-    var opacityVal = 0.7 - curr_spot/(spot_height + curr_spot);
 
 
     //if you're below the first article
-    if (curr_spot > spot_height - $("#nav_container").height()) {
+    if (
+        bFixed
+        && curr_spot > spot_height - $("#nav_container").height() 
+    ){
         $("#nav_container").css({
             'position': 'fixed',
             'top': '0px',
-            'width': spot_width + 'px',
             'z-index': 100
         });
+        bFixed = 1;
     }
     //if you're above the first article
-    else {
+    else if (
+        bFixed
+        && curr_spot <= spot_height - $("#nav_container").height() 
+    ){
         $("#nav_container").css({
-            'width': spot_width + 'px',
             'position': 'absolute',
             'bottom': 0 + '%',
             'top':spot_height - $("#nav_container").height() + 'px',
             'z-index': 100
         });
+        bFixed = 0;
     }
 }
 

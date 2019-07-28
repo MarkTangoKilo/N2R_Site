@@ -176,8 +176,6 @@ footer{
     width:0%;
     opacity:0;
     background-color:yellow;
-    animation: grow_left 500ms 1 0s;
-    animation-fill-mode: forwards;
 }
 ul.ul_list{
     float:right;
@@ -230,15 +228,29 @@ li.li_item:hover{
         width:100%;
         animation: shrink_right 500ms 1;
         animation-fill-mode: forwards;
-        animation-direction: normal;
+    }
+    #spinners{
+        animation:spin 500ms, 1, 500ms;
+        animation-fill-mode: forwards;
+    }
+}
+@media screen and (min-width: 600px){
+    /*for the nav bar to disappear*/
+    #nav_container, li.li_items{
+        opacity:1;
+        width:100%;
+        animation: grow_left 500ms 1;
+        animation-fill-mode: forwards;
+    }
+    #spinners{
+        animation:hideBox 500ms, 1, 500ms;
+        animation-fill-mode: forwards;
     }
 }
 
 /*hide nav bar*/
 @keyframes shrink_right {
-    from{
-        opacity:1;
-        width:100%;   
+    from{  
     }
     to{
         opacity:0;
@@ -248,12 +260,38 @@ li.li_item:hover{
 /*show nav bar*/
 @keyframes grow_left {
     from{
-        opacity:0;
-        width:0%;   
     }
     to{
         opacity:1;
         width:100%;
+    }
+}
+/*spin the box*/
+@keyframes spin {
+    from {
+    }
+    to {
+        transform:rotate(1080deg);
+    }
+}
+@keyframes moveBox{
+    from{
+    }
+    to {
+        background-color:black;
+        display: block;
+        top:10px;
+        right: 10px;
+    }
+}
+@keyframes hideBox{
+    from{
+
+    }
+    to {
+        transform:rotate(1080deg);
+        background-color:black;
+        opacity:0;
     }
 }
 /***************************************/

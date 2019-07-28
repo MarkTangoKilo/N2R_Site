@@ -21,29 +21,23 @@ function Scroll() {
 
 
     //if you're below the first article
-    if (
-        bFixed
-        && curr_spot > spot_height - $("#nav_container").height() 
-    ){
+    if (!bFixed && curr_spot > spot_height - $("#nav_container").height()){
         $("#nav_container").css({
             'position': 'fixed',
             'top': '0px',
             'z-index': 100
         });
-        bFixed = 1;
+        bFixed = true;
     }
     //if you're above the first article
-    else if (
-        bFixed
-        && curr_spot <= spot_height - $("#nav_container").height() 
-    ){
+    else if (bFixed && curr_spot <= spot_height - $("#nav_container").height()){
         $("#nav_container").css({
             'position': 'absolute',
             'bottom': 0 + '%',
             'top':spot_height - $("#nav_container").height() + 'px',
             'z-index': 100
         });
-        bFixed = 0;
+        bFixed = false;
     }
 }
 

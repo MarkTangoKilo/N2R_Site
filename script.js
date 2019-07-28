@@ -1,13 +1,11 @@
 var curr_spot;
 var spot_height;
 var spot_width;
-var bFixed = new Boolean(false);
-var bDoubleCheck = new Boolean(false);
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckScroll);
-    Scroll();
+    CheckScroll();
     $("#li_Home").click(function(){ScrollToHere(0)});
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
@@ -16,23 +14,22 @@ $(document).ready(function () {
 });
 
 function CheckScroll(){
-    Scroll();
-    bDoubleCheck = true;
-    Scroll();
-    bDoubleCheck = false;
+    if(curr_spot > spot_height - $("#nav_container").height()){
+        Scroll(false);
+    }
+    else{
+        Scroll(true);
+    }
 }
 
-function Scroll() {
+function Scroll(bFixed) {
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
 
 
     //if you're below the first article
-    if (
-        (!bFixed || bDoubleCheck) 
-        && curr_spot > spot_height - $("#nav_container").height()
-    ){
+    if (!bFixed){
         $("#nav_container").css({
             'position': 'fixed',
             'top': '0px',
@@ -41,10 +38,7 @@ function Scroll() {
         bFixed = true;
     }
     //if you're above the first article
-    else if (
-        (bFixed || bDoubleCheck)
-         && curr_spot <= spot_height - $("#nav_container").height()
-    ){
+    else if (bFixed){
         $("#nav_container").css({
             'position': 'absolute',
             'bottom': 0 + '%',

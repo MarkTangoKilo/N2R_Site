@@ -198,6 +198,7 @@ li.li_item{
 li.li_item:hover{
     background-color:brown;
     opacity:1;
+    cursor:pointer;
 }
 /***************************************/
 

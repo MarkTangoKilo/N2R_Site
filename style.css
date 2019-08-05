@@ -166,15 +166,17 @@ footer{
 }
 #nav{
     height:50px;
-    width:100%;
     font-size:0px;
 }
 #nav_container{
     float:right;
-    height:50px;
+    height:150px;
     width:0%;
     opacity:0;
     background-color:yellow;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+    overflow:hidden;
 }
 ul.ul_list{
     float:right;
@@ -197,23 +199,24 @@ li.li_item:hover{
     opacity:1;
     cursor:pointer;
 }
+.fader{
+    height:50px;
+    background-color: blue;
+    opacity:1;
+    position:relative;
+}
 /***************************************/
 
 
-/*SPINNERS*/
+/*smol_logo*/
 /***************************************/
-#spinners{
-    height:100px !important;
-    width:100px !important;
+#smol_logo{
+    height:150px !important;
+    width:150px !important;
     background-color:black;
-    position:fixed;
-    bottom:10px;
-    left: 10px;
+    position:absolute;
     z-index:101;
     border-radius: 50%;
-}
-.spinner{
-
 }
 /***************************************/
 
@@ -226,11 +229,6 @@ li.li_item:hover{
         opacity:1;
         width:100%;
         animation: shrink_right 500ms 1;
-        animation-fill-mode: forwards;
-    }
-    #spinners{
-        opacity:0;
-        animation:moveBox 500ms, 1, 500ms;
         animation-fill-mode: forwards;
     }
 }
@@ -246,11 +244,6 @@ need to set it to 0%!
         opacity:0;
         width:0%;
         animation: grow_left 1500ms 1;
-        animation-fill-mode: forwards;
-    }
-    #spinners{
-        opacity:1;
-        animation: hideBox 500ms, 1, 500ms;
         animation-fill-mode: forwards;
     }
 }
@@ -280,20 +273,16 @@ need to set it to 0%!
     to {
     }
 }
-@keyframes moveBox{
+@keyframes moveBottomLeft{
     from{
     }
     to {
-        background-color:black;
-        opacity:1;
     }
 }
-@keyframes hideBox{
+@keyframes moveTopRight{
     from { 
     }
     to {
-        background-color:black;
-        opacity:0;
     }
 }
 /***************************************/

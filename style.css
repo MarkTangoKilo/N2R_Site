@@ -161,7 +161,6 @@ footer{
 /***************************************/
 #nav_container::after{
     content:'';
-    display:table;
     clear:both;
     z-index:100;
 }
@@ -204,14 +203,14 @@ li.li_item:hover{
 /*SPINNERS*/
 /***************************************/
 #spinners{
-    height:75px !important;
-    width:75px !important;
+    height:100px !important;
+    width:100px !important;
     background-color:black;
     position:fixed;
-    display:none;
     bottom:10px;
     left: 10px;
     z-index:101;
+    border-radius: 50%;
 }
 .spinner{
 
@@ -223,27 +222,35 @@ li.li_item:hover{
 /***************************************/
 @media screen and (max-width: 600px){
     /*for the nav bar to disappear*/
-    #nav_container, li.li_items{
+    #nav_container {
         opacity:1;
         width:100%;
         animation: shrink_right 500ms 1;
         animation-fill-mode: forwards;
     }
     #spinners{
-        animation:spin 500ms, 1, 500ms;
+        opacity:0;
+        animation:moveBox 500ms, 1, 500ms;
         animation-fill-mode: forwards;
     }
 }
+/* SUPER FUCKING IMPORTANT:
+originally this didn't work for the animation. It was lmost like it was just
+ignoring it. The stuff that I put BEFORE the animation represents the INITAL state
+of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
+need to set it to 0%!
+*/
 @media screen and (min-width: 600px){
     /*for the nav bar to disappear*/
-    #nav_container, li.li_items{
-        opacity:1;
-        width:100%;
-        animation: grow_left 500ms 1;
+    #nav_container {
+        opacity:0;
+        width:0%;
+        animation: grow_left 1500ms 1;
         animation-fill-mode: forwards;
     }
     #spinners{
-        animation:hideBox 500ms, 1, 500ms;
+        opacity:1;
+        animation: hideBox 500ms, 1, 500ms;
         animation-fill-mode: forwards;
     }
 }
@@ -271,7 +278,6 @@ li.li_item:hover{
     from {
     }
     to {
-        transform:rotate(1080deg);
     }
 }
 @keyframes moveBox{
@@ -279,17 +285,13 @@ li.li_item:hover{
     }
     to {
         background-color:black;
-        display: block;
-        top:10px;
-        right: 10px;
+        opacity:1;
     }
 }
 @keyframes hideBox{
-    from{
-
+    from { 
     }
     to {
-        transform:rotate(1080deg);
         background-color:black;
         opacity:0;
     }

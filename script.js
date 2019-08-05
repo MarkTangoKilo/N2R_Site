@@ -1,6 +1,9 @@
 var curr_spot;
 var spot_height;
 var spot_width;
+const scrollBarPadding = 10;
+const scrollBarExtra = 5;
+var scrollBarTotal = scrollBarPadding + scrollBarExtra;
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
@@ -14,7 +17,7 @@ $(document).ready(function () {
 });
 
 function CheckScroll(){
-    if(curr_spot > spot_height - $("#nav_container").height()){
+    if(curr_spot > spot_height - $("#nav_container").height() - scrollBarTotal){
         Scroll(false);
     }
     else{
@@ -42,7 +45,7 @@ function Scroll(bFixed) {
         $("#nav_container").css({
             'position': 'absolute',
             'bottom': 0 + '%',
-            'top':spot_height - $("#nav_container").height() + 'px',
+            'top':spot_height - $("#nav_container").height() - scrollBarTotal + 'px',
             'z-index': 100
         });
         bFixed = false;

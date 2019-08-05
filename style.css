@@ -53,20 +53,15 @@ footer{
     bottom:0;
     z-index:5;
 }
-/*classes*/
-/*ids*/
-#about{
-	height:300vh;
-}
-#home, #dates, #merch, #music{
-	height:100vh;
-}
 /***************************************/
 
 
 /*SPECIAL CSS*/
 /***************************************/
-/*classes*/
+/*classes & ids*/
+#home, #dates, #merch, #music{
+	height:100vh;
+}
 .smallcontainer{
 	height:100%;
 	width:50%;
@@ -86,6 +81,9 @@ footer{
 	height:100%;
 	width:40%;
 	font-size:5em;
+}
+#about{
+	height:300vh;
 }
 .about{
 
@@ -171,9 +169,8 @@ footer{
 }
 #nav_container{
     float:right;
+    width:100%;
     height:150px;
-    width:0%;
-    opacity:0;
     border-top-left-radius: 150px;
     border-bottom-left-radius: 150px;
     overflow:hidden;
@@ -202,8 +199,8 @@ li.li_item:hover{
 .fader{
     height:50px;
     background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
-    opacity:1;
     position:relative;
+    opacity:0;
 }
 #topfader{
     background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
@@ -224,12 +221,14 @@ li.li_item:hover{
 
 /*MOBILE*/
 /***************************************/
-@media screen and (max-width: 600px){
+@media screen and (max-width: 675px){
     /*for the nav bar to disappear*/
-    #nav_container {
-        opacity:1;
-        width:100%;
-        animation: shrink_right 500ms 1;
+    .fader{
+        animation: fadeout 250ms 1 0ms;
+        animation-fill-mode: forwards;
+    }
+    #nav {
+        animation: shrink_right 250ms 1 250ms;
         animation-fill-mode: forwards;
     }
 }
@@ -239,12 +238,14 @@ ignoring it. The stuff that I put BEFORE the animation represents the INITAL sta
 of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
 need to set it to 0%!
 */
-@media screen and (min-width: 600px){
+@media screen and (min-width: 675px){
     /*for the nav bar to disappear*/
-    #nav_container {
-        opacity:0;
-        width:0%;
-        animation: grow_left 1500ms 1;
+    #nav {
+        animation: grow_left 250ms 1 0ms;
+        animation-fill-mode: forwards;
+    }
+    .fader{
+        animation: fadein 250ms 1 250ms;
         animation-fill-mode: forwards;
     }
 }
@@ -253,31 +254,46 @@ need to set it to 0%!
 
 /*ANIMATIONS*/
 /***************************************/
-/*hide nav bar*/
+/*nav*/
 @keyframes shrink_right {
-    from{  
+    from{ 
+        opacity:1;
+        width:100%; 
     }
     to{
         opacity:0;
         width:0%;
     }
 }
-/*show nav bar*/
 @keyframes grow_left {
     from{
+        opacity:0;
+        width:0%;
     }
     to{
         opacity:1;
         width:100%;
     }
 }
-/*spin the box*/
-@keyframes spin {
-    from {
+
+/*fader*/
+@keyframes fadeout {
+    from{
+        opacity:1;
     }
-    to {
+    to{
+        opacity:0;
     }
 }
+@keyframes fadein {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
 @keyframes moveBottomLeft{
     from{
     }
@@ -291,38 +307,3 @@ need to set it to 0%!
     }
 }
 /***************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*TESTING*/
-/*
-#home{
-    background-color:black;
-}
-#about{
-    background-color:yellow;
-}
-#merch{
-    background-color:red;
-}
-#music{
-    background-color:green;
-}
-#dates{
-    background-color:blue;
-}
-*/

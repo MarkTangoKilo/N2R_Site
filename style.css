@@ -167,13 +167,13 @@ footer{
 #nav{
     height:50px;
     font-size:0px;
+    background-color:yellow;
 }
 #nav_container{
     float:right;
     height:150px;
     width:0%;
     opacity:0;
-    background-color:yellow;
     border-top-left-radius: 150px;
     border-bottom-left-radius: 150px;
     overflow:hidden;
@@ -201,15 +201,16 @@ li.li_item:hover{
 }
 .fader{
     height:50px;
-    background-color: blue;
+    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
     opacity:1;
     position:relative;
 }
-/***************************************/
-
-
-/*smol_logo*/
-/***************************************/
+#topfader{
+    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
+}
+#bottomfader{
+    background-image:linear-gradient(to bottom, rgba(0,0,255, 1), rgba(0,0,255, 0));
+}
 #smol_logo{
     height:150px !important;
     width:150px !important;
@@ -247,7 +248,11 @@ need to set it to 0%!
         animation-fill-mode: forwards;
     }
 }
+/***************************************/
 
+
+/*ANIMATIONS*/
+/***************************************/
 /*hide nav bar*/
 @keyframes shrink_right {
     from{  

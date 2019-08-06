@@ -1,6 +1,7 @@
 var curr_spot;
 var spot_height;
 var spot_width;
+var bMobilized = new Boolean(false);
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
@@ -14,11 +15,21 @@ $(document).ready(function () {
 });
 
 function CheckScroll(){
-    if(curr_spot > spot_height - $("#nav_container").height()){
-        Scroll(false);
+    if($(window).width() <= 675) {
+        bMobilized = true;
     }
-    else{
-        Scroll(true);
+    else {
+        bMobilized = false;
+    }
+    //finding out what should be done with the nav bar based on the
+    //position of the scrolling
+    if(!bMobilized) {
+        if(curr_spot > spot_height - $("#nav_container").height()) {
+            Scroll(false);
+        }
+        else {
+            Scroll(true);
+        }
     }
 }
 

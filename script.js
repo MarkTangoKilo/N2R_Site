@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_Music").click(function(){ScrollToHere(5)});
-    $("#li_Merch").click(function(){ScrollToHere(6)});
+    $("#li_Contact").click(function(){ScrollToHere(6)});
 });
 
 function CheckScroll(){

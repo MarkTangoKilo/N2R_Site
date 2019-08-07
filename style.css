@@ -1,9 +1,12 @@
 /*
 ///HERE///
-    mobile setup: set it so that everything
-    will go from in a row to on top of each other. Add animations
-    for the nav bar to smoosh into a circle, spin it, and then send
-    it to the top corner once we hit the max level of skinny here
+    1) Get it so that the bar will appear and disappear appropiately with css and jquery
+        regardless of where it sits (see bMobilized in script.js)
+    2) Get the faders to size and resize based on the position of the scrollTop()
+    3) Get the side window to open up upon clicking it with the same option available
+    4) Make it scroll to and disappear
+    5) put some cyclical animation around the logo, suble at first, more prominent when
+        hovering
 */
 
 
@@ -77,7 +80,6 @@ footer{
 
     background-color:black;
     opacity:.5;
-
 	height:100%;
 	width:40%;
 	font-size:5em;
@@ -89,7 +91,6 @@ footer{
 
     background-color:yellow;
     opacity:.5;
-
 	height:100%;
 	width:60%;
 	font-size:5em;
@@ -99,7 +100,6 @@ footer{
 
     background-color:red;
     opacity:.5;
-
 	width:50%;
 	height:100%;
 }
@@ -107,7 +107,6 @@ footer{
     
     background-color:green;
     opacity:.5;
-
 	width:50%;
 	height:100%;
 }
@@ -116,14 +115,12 @@ footer{
     
     background-color:orange;
     opacity:.5;
-    
 	height:100%;
 	width:50%;
 }
 #otherthing{
     background-color:blue;
     opacity:.5;
-
 	height:50%;
 	width:100%;
 }
@@ -131,7 +128,6 @@ footer{
     
     background-color:purple;
     opacity:.5;
-    
 	height:50%;
 	width:100%;
 }
@@ -140,7 +136,6 @@ footer{
     
     background-color:magenta;
     opacity:.5;
-    
 	height:100%;
 	width:40%;
 }
@@ -148,7 +143,6 @@ footer{
     
     background-color:greenyellow;
     opacity:.5;
-    
 	height:100%;
 	width:60%;
 }
@@ -180,14 +174,14 @@ ul.ul_list{
     height:50px;
 }
 li.li_item{
-    font-size:35px;
+    font-size:25px;
     right:0px;
     float: right;
     margin:0;
     width:20%;
     height:50px;
     text-align:center;
-    padding-top:4px;
+    padding-top:10px;
     opacity:0.7;
     list-style:none;
 }
@@ -221,7 +215,7 @@ li.li_item:hover{
 
 /*MOBILE*/
 /***************************************/
-@media screen and (max-width: 675px){
+@media screen and (max-width: 700px){
     /*for the nav bar to disappear*/
     .fader{
         animation: fadeout 250ms 1 0ms;
@@ -238,7 +232,7 @@ ignoring it. The stuff that I put BEFORE the animation represents the INITAL sta
 of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
 need to set it to 0%!
 */
-@media screen and (min-width: 675px){
+@media screen and (min-width: 700px){
     /*for the nav bar to disappear*/
     #nav {
         animation: grow_left 250ms 1 0ms;

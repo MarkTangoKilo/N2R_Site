@@ -191,16 +191,15 @@ li.li_item:hover{
     cursor:pointer;
 }
 .fader{
+    height:100%;
+    width:100%;
+    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
+    position:absolute;
+}
+.faderHolder{
+    width:100%;
     height:50px;
-    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
     position:relative;
-    opacity:0;
-}
-#topfader{
-    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
-}
-#bottomfader{
-    background-image:linear-gradient(to bottom, rgba(0,0,255, 1), rgba(0,0,255, 0));
 }
 #smol_logo{
     height:150px !important;
@@ -216,88 +215,34 @@ li.li_item:hover{
 /*MOBILE*/
 /***************************************/
 @media screen and (max-width: 700px){
-    /*for the nav bar to disappear*/
-    .fader{
-        animation: fadeout 250ms 1 0ms;
-        animation-fill-mode: forwards;
-    }
-    #nav {
-        animation: shrink_right 250ms 1 250ms;
-        animation-fill-mode: forwards;
-    }
+
 }
-/* SUPER FUCKING IMPORTANT:
-originally this didn't work for the animation. It was lmost like it was just
-ignoring it. The stuff that I put BEFORE the animation represents the INITAL state
-of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
-need to set it to 0%!
-*/
 @media screen and (min-width: 700px){
-    /*for the nav bar to disappear*/
-    #nav {
-        animation: grow_left 250ms 1 0ms;
-        animation-fill-mode: forwards;
-    }
-    .fader{
-        animation: fadein 250ms 1 250ms;
-        animation-fill-mode: forwards;
-    }
+
 }
 /***************************************/
 
 
 /*ANIMATIONS*/
 /***************************************/
-/*nav*/
-@keyframes shrink_right {
-    from{ 
-        opacity:1;
-        width:100%; 
-    }
-    to{
-        opacity:0;
-        width:0%;
-    }
-}
-@keyframes grow_left {
-    from{
-        opacity:0;
-        width:0%;
-    }
-    to{
-        opacity:1;
-        width:100%;
-    }
-}
-
-/*fader*/
-@keyframes fadeout {
-    from{
-        opacity:1;
-    }
-    to{
-        opacity:0;
-    }
-}
-@keyframes fadein {
-    from{
-        opacity:0;
-    }
-    to{
-        opacity:1;
-    }
-}
-
-@keyframes moveBottomLeft{
-    from{
-    }
-    to {
-    }
-}
-@keyframes moveTopRight{
-    from { 
-    }
-    to {
-    }
-}
 /***************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*NOTES*/
+/* SUPER FUCKING IMPORTANT:
+originally this didn't work for the animation. It was lmost like it was just
+ignoring it. The stuff that I put BEFORE the animation represents the INITAL state
+of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
+need to set it to 0%!
+*/

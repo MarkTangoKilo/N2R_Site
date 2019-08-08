@@ -1,7 +1,13 @@
 /*
 ///HERE///
-    1) Get the faders to size and resize based on the position of the scrollTop()
-    2) Get the side window to open up upon clicking it with the same option available
+    1) Get the faders to size and resize based on the position of the scrollTop() ALMOST THERE...
+    2) Get the faders to shut in the and slide inwards
+    3) Get the nav bar contents to have zero opacity
+    4) Get the nav bar to slide in
+    5) Rotate something around logo
+    6) Move log up
+    7) Bust the logo
+    8) Get the side window to open up upon clicking it with the same option available
 */
 
 
@@ -152,6 +158,7 @@ footer{
     z-index:100;
 }
 #nav{
+    z-index:110;
     height:50px;
     font-size:0px;
     background-color:yellow;
@@ -188,20 +195,26 @@ li.li_item:hover{
 .fader{
     height:100%;
     width:100%;
-    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
     position:absolute;
+}
+#topfader{
+    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
+}
+#bottomfader{
+    background-image:linear-gradient(to bottom, rgba(0,0,255, 1), rgba(0,0,255, 0));
 }
 .faderHolder{
     width:100%;
     height:50px;
     position:relative;
+    z-index:101;
 }
 #smol_logo{
     height:150px !important;
     width:150px !important;
     background-color:black;
     position:absolute;
-    z-index:101;
+    z-index:200 !important;
     border-radius: 50%;
 }
 /***************************************/

@@ -14,7 +14,7 @@ var iMinWindowSize = 700;
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
-    CheckScroll();
+    CheckResize();
     $("#li_Home").click(function(){ScrollToHere(0)});
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
@@ -27,22 +27,24 @@ function CheckScroll(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
-    ///NAV BAR OR NAV SIDE WINDOW
+
+    
+    //check fader bars
+    FaderBarCheck();
+    
     //check to see if I need to get the page into mobile mode
     if(!bMobilized && $(window).width() <= iMinWindowSize){
         NavBarMode(true);
     }
-    //check to see if the page needs to be in desktop mode
     else if (bMobilized && $(window).width() > iMinWindowSize){
         NavBarMode(false);
     }
 
-    ///NAVBAR FIXED OR NAV BAR ABSOLUTE
     //check to see if we need 
-    if(curr_spot > spot_height - $("#nav_container").height() && !bAlreadyFixed) {
+    if(!bAlreadyFixed && curr_spot > spot_height - $("#nav_container").height()) {
         NavBarPos(false);
     }
-    else if(curr_spot <= spot_height - $("#nav_container").height() && bAlreadyFixed){
+    else if(bAlreadyFixed && curr_spot <= spot_height - $("#nav_container").height()){
         NavBarPos(true);
     }
 }
@@ -52,24 +54,23 @@ function CheckResize(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
+
+    //check fader bars
+    FaderBarCheck();
+
     ///NAV BAR OR NAV SIDE WINDOW
-    //check to see if I need to get the page into mobile mode
-    if($(window).width() <= iMinWindowSize)
-    {
+    if($(window).width() <= iMinWindowSize) {
         NavBarMode(true);
     }
-    //check to see if the page needs to be in desktop mode
-    else if ($(window).width() > iMinWindowSize)
-    {
+    else {
         NavBarMode(false);
     }
 
-    ///NAVBAR FIXED OR NAV BAR ABSOLUTE
     //check to see if we need 
     if(curr_spot > spot_height - $("#nav_container").height()) {
         NavBarPos(false);
     }
-    else if(curr_spot <= spot_height - $("#nav_container").height()){
+    else {
         NavBarPos(true);
     }
 }
@@ -96,11 +97,46 @@ function NavBarPos(bFixed) {
     bAlreadyFixed = !bFixed;
 }
 
+function FaderBarCheck(){
+    //fader bar height
+    if(curr_spot === 0){
+        FaderSize(true);
+    }
+    else if(curr_spot < spot_height - $("#nav_container").height()) {
+        FaderSize(false);
+    }
+    else {
+        FaderSize(true);
+    }
+}
+
+//will manipulate the height of the two faders
+function FaderSize(bForce){
+    //placeholder for the height value of the fader
+    var y;
+
+    //bForce represents if I want to bother calculating it or not
+    if(!bForce){
+        y = curr_spot * $(".faderHolder").height()/spot_height;
+        $("#topfaderHolder").height(y);
+        $("#botfaderHolder").height($(".faderHolder").height() - y);
+    }
+    else{
+        if(curr_spot < spot_height){
+            $("#topfaderHolder").height($(".faderHolder").height());
+            $("#botfaderHolder").height(0);
+        }
+        else{
+            $("#topfaderHolder").height(0);
+            $("#botfaderHolder").height($(".faderHolder").height());
+        }
+    }
+}
 //will switch the bar between mobile mode and desktop mode
 function NavBarMode(bMakeMobile){
     if(bMakeMobile) {
         //STEP 1:   shrink the two faders and make the text opacity go to zero
-        
+
         //STEP 2:   jam the nav bar into the circle, and make something spin around it
         //          and make it burst out a bit and back in
 

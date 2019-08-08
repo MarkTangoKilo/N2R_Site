@@ -8,6 +8,8 @@ var spot_width;
 var bMobilized = new Boolean(false);
 //true when the bar is fixed at the top
 var bAlreadyFixed = new Boolean(false);
+//minimum in width before bMobilized is changed
+var iMinWindowSize = 700;
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
@@ -27,11 +29,11 @@ function CheckScroll(){
     spot_width = $(window).width();
     ///NAV BAR OR NAV SIDE WINDOW
     //check to see if I need to get the page into mobile mode
-    if(!bMobilized && $(window).width() <= 675){
+    if(!bMobilized && $(window).width() <= iMinWindowSize){
         NavBarMode(true);
     }
     //check to see if the page needs to be in desktop mode
-    else if (bMobilized && $(window).width() > 675){
+    else if (bMobilized && $(window).width() > iMinWindowSize){
         NavBarMode(false);
     }
 
@@ -52,12 +54,12 @@ function CheckResize(){
     spot_width = $(window).width();
     ///NAV BAR OR NAV SIDE WINDOW
     //check to see if I need to get the page into mobile mode
-    if($(window).width() <= 675)
+    if($(window).width() <= iMinWindowSize)
     {
         NavBarMode(true);
     }
     //check to see if the page needs to be in desktop mode
-    else if ($(window).width() > 675)
+    else if ($(window).width() > iMinWindowSize)
     {
         NavBarMode(false);
     }
@@ -97,9 +99,22 @@ function NavBarPos(bFixed) {
 //will switch the bar between mobile mode and desktop mode
 function NavBarMode(bMakeMobile){
     if(bMakeMobile) {
+        //STEP 1:   shrink the two faders and make the text opacity go to zero
+        
+        //STEP 2:   jam the nav bar into the circle, and make something spin around it
+        //          and make it burst out a bit and back in
+
+        //STEP 3:   slide it up to the top of the screen and fix it there
+
+        //STEP 4:   get a shine on the logo
 
     }
     else {
+        //STEP 1:   bring it down to where it needs to be
+
+        //STEP 2:   shoot out the navbar
+
+        //STEP 3:   add sliders
 
     }
     bMobilized = !bMakeMobile;

@@ -3,6 +3,7 @@ var spot_height;
 var spot_width;
 var bMobilized = new Boolean(false);
 var bFixed = new Boolean(true);
+var bPastMain = new Boolean(true);
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
@@ -16,6 +17,7 @@ $(document).ready(function () {
 });
 
 function InitialState(){
+    GetDimensions();
     if(spot_width <= 700){
         bMobilized = true;
     }
@@ -28,12 +30,18 @@ function GetDimensions(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
+    if(curr_spot > spot_height - $("#nav_container").height()){
+        bPastMain = true;
+    }
+    else{
+        bPastMain = false;
+    }
 }
 
 function CheckResize(){
     GetDimensions();
 
-    if(curr_spot > spot_height - $("#nav_container").height()){
+    if(bPastMain){
         bFixed = true;
         ChangeBoxSize(true);
     }
@@ -54,12 +62,12 @@ function CheckResize(){
 
 function CheckScroll(){
     GetDimensions();
-
-    if(!bFixed && curr_spot > spot_height - $("#nav_container").height()){
+    Faders();
+    if(!bFixed && bPastMain){
         bFixed = true;
         ChangeBoxSize(true);
     }
-    else if (bFixed && curr_spot <= spot_height - $("#nav_container").height()){
+    else if (bFixed && !bPastMain){
         bFixed = false;
         ChangeBoxSize(false);
     }
@@ -102,14 +110,25 @@ function Mobilize(bMob) {
 }
 
 function Faders(){
-    
+    if(!bPastMain){
+        var v = $("#nav").height()*curr_spot/spot_height;
+        $("#topFader").height($("#nav").height() - v);
+        $("#paddingBar").height($("#nav").height() - v);
+        $("#botFader").height(v);
+        
+    }   
+    else{
+        $("#topFader").height(0);
+        $("#paddingBar").height(0);
+        $("#botFader").height($("#nav").height());
+    }
 }
 
 function ScrollToHere(val){
     GetDimensions();
     var iTargetValue = val * spot_height;
 
-    //$('html, body').animate({scrollTop: iTargetValue}, 1000);
+    $('html, body').animate({scrollTop: iTargetValue}, 1000);
     $('html, body').animate({
         scrollTop: iTargetValue
     }, 1000, 'swing');

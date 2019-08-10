@@ -212,14 +212,10 @@ li.li_item:hover{
     height:50px;
     z-index:100;
 }
-#faderContainerTop{
-
-}
-#faderContainerBot{
-
-}
-.faderContainer{
-
+#paddingBar{
+    position: relative;
+    opacity:0;
+    height:50px;
 }
 #logoButton{
     height:150px;

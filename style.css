@@ -21,6 +21,7 @@ html, body, article, section, span, footer, nav, ul, li{
 /*tags*/
 html{
     height:550vh;
+    width:100%;
     box-sizing:border-box;
     z-index:1;
 }
@@ -169,28 +170,29 @@ footer{
     height:50px;
     width:100%;
     font-size:0px;
+    overflow:hidden;
+    background-color: yellow;
 }
 #nav_container{
     float:right;
-    height:50px;
-    width:0%;
-    opacity:0;
-    background-color:yellow;
+    height:150px;
+    width:100%;
+    border-radius: 75px 0 0 75px;
+    overflow:hidden;
 }
 ul.ul_list{
     float:right;
-    height:50px;
+    height:100%;
 }
 li.li_item{
-    font-size:35px;
+    font-size:25px;
     right:0px;
     float: right;
     margin:0;
     width:20%;
     height:50px;
     text-align:center;
-    padding-top:4px;
-    opacity:0.7;
+    padding-top:10px;
     list-style:none;
 }
 li.li_item:hover{
@@ -198,135 +200,37 @@ li.li_item:hover{
     opacity:1;
     cursor:pointer;
 }
-/***************************************/
-
-
-/*SPINNERS*/
-/***************************************/
-#spinners{
-    height:75px !important;
-    width:75px !important;
-    background-color:black;
-    position:fixed;
-    display:none;
-    bottom:10px;
-    left: 10px;
-    z-index:101;
+#topFader{
+    position: relative;
+    background-image:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,1));
 }
-.spinner{
+#botFader{
+    position: relative;
+    background-image:linear-gradient(to top, rgba(0,0,255,0), rgba(0,0,255,1));
+}
+.fader{
+    height:50px;
+    z-index:100;
+}
+#faderContainerTop{
 
 }
-/***************************************/
+#faderContainerBot{
 
+}
+.faderContainer{
+
+}
+#logoButton{
+    height:150px;
+    width:150px;
+    border-radius: 50%;
+    background-color: black;
+    position:absolute;
+    z-index:200;
+}
+/***************************************/
 
 /*MOBILE*/
 /***************************************/
-@media screen and (max-width: 600px){
-    /*for the nav bar to disappear*/
-    #nav_container, li.li_items{
-        opacity:1;
-        width:100%;
-        animation: shrink_right 500ms 1;
-        animation-fill-mode: forwards;
-    }
-    #spinners{
-        animation:spin 500ms, 1, 500ms;
-        animation-fill-mode: forwards;
-    }
-}
-@media screen and (min-width: 600px){
-    /*for the nav bar to disappear*/
-    #nav_container, li.li_items{
-        opacity:1;
-        width:100%;
-        animation: grow_left 500ms 1;
-        animation-fill-mode: forwards;
-    }
-    #spinners{
-        animation:hideBox 500ms, 1, 500ms;
-        animation-fill-mode: forwards;
-    }
-}
-
-/*hide nav bar*/
-@keyframes shrink_right {
-    from{  
-    }
-    to{
-        opacity:0;
-        width:0%;
-    }
-}
-/*show nav bar*/
-@keyframes grow_left {
-    from{
-    }
-    to{
-        opacity:1;
-        width:100%;
-    }
-}
-/*spin the box*/
-@keyframes spin {
-    from {
-    }
-    to {
-        transform:rotate(1080deg);
-    }
-}
-@keyframes moveBox{
-    from{
-    }
-    to {
-        background-color:black;
-        display: block;
-        top:10px;
-        right: 10px;
-    }
-}
-@keyframes hideBox{
-    from{
-
-    }
-    to {
-        transform:rotate(1080deg);
-        background-color:black;
-        opacity:0;
-    }
-}
 /***************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*TESTING*/
-/*
-#home{
-    background-color:black;
-}
-#about{
-    background-color:yellow;
-}
-#merch{
-    background-color:red;
-}
-#music{
-    background-color:green;
-}
-#dates{
-    background-color:blue;
-}
-*/

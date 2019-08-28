@@ -4,26 +4,30 @@ var spot_width;
 var bMobilized = new Boolean(false);
 var bFixed = new Boolean(true);
 var bPastMain = new Boolean(true);
+var bHiddenNavOpen = new Boolean(false);
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
     InitialState();
     CheckResize();
+    $("#logoButton").click(ClickLogo);
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch").click(function(){ScrollToHere(5)});
     $("#li_Contact").click(function(){ScrollToHere(6)});
+    CheckResize();
 });
 
 function InitialState(){
     GetDimensions();
     if(spot_width <= 700){
-        bMobilized = true;
-    }
-    else{
         bMobilized = false;
     }
+    else{
+        bMobilized = true;
+    }
+    bHiddenNavOpen = false;
 }
 
 function GetDimensions(){
@@ -132,4 +136,20 @@ function ScrollToHere(val){
     $('html, body').animate({
         scrollTop: iTargetValue
     }, 1000, 'swing');
+}
+
+function ClickLogo(){
+    if(bMobilized) {
+        if(!bHiddenNavOpen){
+            $(".li_item_hidden").css({display:'block'});
+            $("#sidemenu").animate({width:'20%'}, 250);
+            bHiddenNavOpen = true;
+        }
+        else{
+            $("#sidemenu").animate({width:'0'}, 250, function(){
+                $(".li_item_hidden").css({display:'none'});
+            });
+            bHiddenNavOpen = false;
+        }
+    }
 }

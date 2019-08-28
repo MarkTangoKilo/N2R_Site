@@ -1,9 +1,12 @@
 /*
 ///HERE///
-    mobile setup: set it so that everything
-    will go from in a row to on top of each other. Add animations
-    for the nav bar to smoosh into a circle, spin it, and then send
-    it to the top corner once we hit the max level of skinny here
+    get click functionality on the circle. 
+    =>onClick(bMobilized) will release a side modal with
+        all of the same option as the nav bar
+    =>onClick(!bMoblized) will take user to home screen
+
+    The side modal must have all of the same functionality
+    as before
 */
 
 
@@ -188,7 +191,6 @@ li.li_item{
     font-size:25px;
     right:0px;
     float: right;
-    margin:0;
     width:20%;
     height:50px;
     text-align:center;
@@ -226,6 +228,23 @@ li.li_item:hover{
     z-index:200;
 }
 /***************************************/
+
+
+/*SIDE BAR*/
+/***************************************/
+#sidemenu{
+    display:none;
+    background-color:yellow;
+}
+.li_item_hidden{
+    height:50px;
+    width:20%;
+    text-align:center;
+    padding-top:10px;
+    list-style:none;
+}
+/***************************************/
+
 
 /*MOBILE*/
 /***************************************/

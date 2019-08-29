@@ -139,17 +139,18 @@ function ScrollToHere(val){
 }
 
 function ClickLogo(){
+    ///so why the fuck won't this work when I nest these functions???
+    ///obviously it's race conditions, but... why...?
     if(bMobilized) {
-        if(!bHiddenNavOpen){
-            $(".li_item_hidden").css({display:'block'});
-            $("#sidemenu").animate({width:'20%'}, 250);
-            bHiddenNavOpen = true;
+        if(bHiddenNavOpen){
+            $(".li_item_hidden").fadeOut(500);
+            $("#sidemenu").animate({width:'0'}, 500);
+            bHiddenNavOpen = false;
         }
         else{
-            $("#sidemenu").animate({width:'0'}, 250, function(){
-                $(".li_item_hidden").css({display:'none'});
-            });
-            bHiddenNavOpen = false;
+            $("#sidemenu").animate({width:'200px'}, 500);
+            $(".li_item_hidden").fadeIn(500);
+            bHiddenNavOpen = true;
         }
     }
 }

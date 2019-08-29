@@ -11,7 +11,7 @@ $(document).ready(function () {
     $(window).resize(CheckResize);
     InitialState();
     CheckResize();
-    $("#logoButton").click(ClickLogo);
+    $("#logoButton").click(CheckSideBar);
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch").click(function(){ScrollToHere(5)});
@@ -100,6 +100,18 @@ function ChangeBoxSize(bFixIt) {
     }
 }
 
+function CheckSideBar(){
+    if(bMobilized && bHiddenNavOpen){
+        ClickLogo(true);
+    }
+    else if(bMobilized && !bHiddenNavOpen){
+        ClickLogo(false);
+    }
+    else{
+        ClickLogo(true);
+    }
+}
+
 function Mobilize(bMob) {
     if(bMob){
         $(".fader").animate({opacity: '0'}, 250,
@@ -110,6 +122,7 @@ function Mobilize(bMob) {
         $("#nav").animate({width:"100%"}, 250,
             function(){$(".fader").animate({opacity: '1'}, 250)}
         );
+        ClickLogo(true);
     }
 }
 
@@ -128,7 +141,7 @@ function Faders(){
     }
 }
 
-function ScrollToHere(val){
+function ScrollToHere(bShrink){
     GetDimensions();
     var iTargetValue = val * spot_height;
 
@@ -138,19 +151,16 @@ function ScrollToHere(val){
     }, 1000, 'swing');
 }
 
-function ClickLogo(){
+function ClickLogo(bShrink){
     ///so why the fuck won't this work when I nest these functions???
     ///obviously it's race conditions, but... why...?
-    if(bMobilized) {
-        if(bHiddenNavOpen){
-            $(".li_item_hidden").fadeOut(500);
-            $("#sidemenu").animate({width:'0'}, 500);
-            bHiddenNavOpen = false;
-        }
-        else{
-            $("#sidemenu").animate({width:'200px'}, 500);
-            $(".li_item_hidden").fadeIn(500);
-            bHiddenNavOpen = true;
-        }
+    if(bShrink){
+        $(".li_item_hidden").fadeOut(500);
+        $("#sidemenu").animate({width:'0'}, 500);
     }
+    else{
+        $("#sidemenu").animate({width:'200px'}, 500);
+        $(".li_item_hidden").fadeIn(500);
+    }
+    bHiddenNavOpen = !bShrink;
 }

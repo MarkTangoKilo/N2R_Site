@@ -156,9 +156,11 @@ function ClickLogo(bShrink){
     if(bShrink){
         $(".li_item_hidden").fadeOut(500);
         $("#sidemenu").animate({width:'0'}, 500);
+        $("#logoButton").animate({left:'0'}, 500);
     }
     else{
         $("#sidemenu").animate({width:'200px'}, 500);
+        $("#logoButton").animate({left:'200px'}, 500);
         $(".li_item_hidden").fadeIn(500);
     }
     bHiddenNavOpen = !bShrink;

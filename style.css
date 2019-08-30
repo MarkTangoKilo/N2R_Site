@@ -197,7 +197,7 @@ li.li_item{
     padding-top:10px;
     list-style:none;
 }
-li.li_item:hover{
+li.li_item:hover, li.li_item_hidden:hover{
     background-color:brown;
     opacity:1;
     cursor:pointer;
@@ -239,7 +239,7 @@ li.li_item:hover{
 }
 .li_item_hidden{
     height:50px;
-    width:20%;
+    width:200px;
     text-align:center;
     padding-top:10px;
     list-style:none;

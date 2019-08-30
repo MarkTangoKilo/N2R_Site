@@ -16,6 +16,10 @@ $(document).ready(function () {
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch").click(function(){ScrollToHere(5)});
     $("#li_Contact").click(function(){ScrollToHere(6)});
+    $("#li_About_hidden").click(function(){ScrollToHere(1)});
+    $("#li_Dates_hidden").click(function(){ScrollToHere(4)});
+    $("#li_MusicMerch_hidden").click(function(){ScrollToHere(5)});
+    $("#li_Contact_hidden").click(function(){ScrollToHere(6)});
     CheckResize();
 });
 

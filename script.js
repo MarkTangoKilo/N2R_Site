@@ -71,7 +71,7 @@ function CheckScroll(){
         bFixed = true;
         ChangeBoxSize(true);
     }
-    else if (bFixed && !bPastMain){
+    else if (!bPastMain){
         bFixed = false;
         ChangeBoxSize(false);
     }
@@ -82,9 +82,8 @@ function ChangeBoxSize(bFixIt) {
     //if you're below the first article
     if (bFixIt){
         $("#nav_container").css({
-            'position': 'fixed',
-            'top': '0px',
-            'z-index': 100
+            'position': 'absolute',
+            'top': '0px'
         });
         bFixIt = true;
     }
@@ -92,9 +91,7 @@ function ChangeBoxSize(bFixIt) {
     else if (!bFixIt){
         $("#nav_container").css({
             'position': 'absolute',
-            'bottom': 0 + '%',
-            'top':spot_height - $("#nav_container").height() + 'px',
-            'z-index': 100
+            'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px'
         });
         bFixIt = false;
     }
@@ -141,7 +138,7 @@ function Faders(){
     }
 }
 
-function ScrollToHere(bShrink){
+function ScrollToHere(val){
     GetDimensions();
     var iTargetValue = val * spot_height;
 

@@ -169,19 +169,19 @@ footer{
     clear:both;
     z-index:100;
 }
-#nav{
-    height:50px;
-    width:100%;
-    font-size:0px;
-    overflow:hidden;
-    background-color: yellow;
-}
 #nav_container{
     float:right;
     height:150px;
     width:100%;
     border-radius: 75px 0 0 75px;
     overflow:hidden;
+}
+#nav{
+    height:50px;
+    width:100%;
+    font-size:0px;
+    overflow:hidden;
+    background-color: yellow;
 }
 ul.ul_list{
     float:right;
@@ -233,6 +233,7 @@ li.li_item:hover{
 /*SIDE BAR*/
 /***************************************/
 #sidemenu{
+    position:fixed;
     display:none;
     background-color:yellow;
 }
@@ -242,6 +243,16 @@ li.li_item:hover{
     text-align:center;
     padding-top:10px;
     list-style:none;
+}
+/***************************************/
+
+/*VIEW*/
+/***************************************/
+#view{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    z-index:1000;
 }
 /***************************************/
 

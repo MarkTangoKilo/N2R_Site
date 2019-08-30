@@ -98,14 +98,16 @@ function ChangeBoxSize(bFixIt) {
 }
 
 function CheckSideBar(){
-    if(bMobilized && bHiddenNavOpen){
-        ClickLogo(true);
-    }
-    else if(bMobilized && !bHiddenNavOpen){
-        ClickLogo(false);
+    if(bMobilized){
+        if(bHiddenNavOpen){
+            ClickLogo(true);
+        }
+        else{
+            ClickLogo(false);
+        }
     }
     else{
-        ClickLogo(true);
+        ScrollToHere(0);
     }
 }
 

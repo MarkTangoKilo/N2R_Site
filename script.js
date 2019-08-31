@@ -165,14 +165,15 @@ function ScrollToHere(val){
 function ClickLogo(bShrink){
     ///so why the fuck won't this work when I nest these functions???
     ///obviously it's race conditions, but... why...?
+    ///ALSO if I cut things off and have a circle too big, I get some REALLY cool effects
     if(bShrink){
         $(".li_item_hidden").fadeOut(500);
         $("#sidemenu").animate({width:'0'}, 500);
-        $("#logoButton").animate({left:'0'}, 500);
+        $("#logoButton").animate({left:'0', height:'150px', width:'150px'}, 500);
     }
     else{
         $("#sidemenu").animate({width:'200px'}, 500);
-        $("#logoButton").animate({left:'200px'}, 500);
+        $("#logoButton").animate({left:'200px', height:'50px', width:'50px'}, 500);
         $(".li_item_hidden").fadeIn(500);
     }
     bHiddenNavOpen = !bShrink;

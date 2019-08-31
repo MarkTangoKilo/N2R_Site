@@ -21,17 +21,12 @@ $(document).ready(function () {
     $("#li_Dates_hidden").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch_hidden").click(function(){ScrollToHere(5)});
     $("#li_Contact_hidden").click(function(){ScrollToHere(6)});
-    CheckResize();
+    CheckScroll();
 });
 
 function InitialState(){
     GetDimensions();
-    if(spot_width <= 700){
-        bMobilized = false;
-    }
-    else{
-        bMobilized = true;
-    }
+    bMobilized = spot_width <= 700 ? true : false;
     bHiddenNavOpen = false;
 
     //INITIAL OPENING
@@ -79,13 +74,13 @@ function CheckResize(){
 function CheckScroll(){
     GetDimensions();
     Faders();
+    LogoFade(bPastMain);
+    
     if(!bFixed && bPastMain){
-        bFixed = true;
-        ChangeBoxSize(true);
+        ChangeBoxSize(bFixed = true);
     }
     else if (!bPastMain){
-        bFixed = false;
-        ChangeBoxSize(false);
+        ChangeBoxSize(bFixed = false);
     }
 }
 
@@ -112,14 +107,6 @@ function ChangeBoxSize(bFixIt) {
             bFixIt = false;
         }
     }//*
-    else{
-        if(bFixIt){
-            $("#logoButton").css({ 'opacity': 1 });
-        }
-        else{
-            $("#logoButton").css({ 'opacity': curr_spot/spot_height});
-        }
-    }//*/
 }
 
 function CheckSideBar(){
@@ -165,6 +152,15 @@ function Faders(){
         $("#topFader").height(0);
         $("#paddingBar").height(0);
         $("#botFader").height($("#nav").height());
+    }
+}
+
+function LogoFade(bFixIt){
+    if(bFixIt){
+        $("#logoButton").css({ 'opacity': 1 });
+    }
+    else{
+        $("#logoButton").css({ 'opacity': curr_spot/spot_height});
     }
 }
 

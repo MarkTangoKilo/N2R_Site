@@ -12,6 +12,7 @@ $(document).ready(function () {
     InitialState();
     CheckResize();
     $("#logoButton").click(CheckSideBar);
+    $("#view").click(CloseSideBar);
     $("#li_About").click(function(){ScrollToHere(1)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch").click(function(){ScrollToHere(5)});
@@ -105,10 +106,7 @@ function ChangeBoxSize(bFixIt) {
 
 function CheckSideBar(){
     if(bMobilized){
-        if(bHiddenNavOpen){
-            ClickLogo(true);
-        }
-        else{
+        if(!bHiddenNavOpen){
             ClickLogo(false);
         }
     }
@@ -169,12 +167,20 @@ function ClickLogo(bShrink){
     if(bShrink){
         $(".li_item_hidden").fadeOut(500);
         $("#sidemenu").animate({width:'0'}, 500);
-        $("#logoButton").animate({left:'0', height:'150px', width:'150px'}, 500);
+        $("#logoButton").animate({left:'0', height:'150px', width:'150px'}, 500,
+        function(){
+            bHiddenNavOpen = !bShrink;});
     }
     else{
         $("#sidemenu").animate({width:'200px'}, 500);
         $("#logoButton").animate({left:'200px', height:'50px', width:'50px'}, 500);
-        $(".li_item_hidden").fadeIn(500);
+        $(".li_item_hidden").fadeIn(500, function(){
+            bHiddenNavOpen = !bShrink;});
     }
-    bHiddenNavOpen = !bShrink;
+}
+
+function CloseSideBar(){
+    if(bHiddenNavOpen){
+        ClickLogo(true);
+    }
 }

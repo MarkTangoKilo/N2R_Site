@@ -83,21 +83,23 @@ function CheckScroll(){
 
 function ChangeBoxSize(bFixIt) {
     GetDimensions();
-    //if you're below the first article
-    if (bFixIt){
-        $("#nav_container").css({
-            'position': 'absolute',
-            'top': '0px'
-        });
-        bFixIt = true;
-    }
-    //if you're above the first article
-    else if (!bFixIt){
-        $("#nav_container").css({
-            'position': 'absolute',
-            'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px'
-        });
-        bFixIt = false;
+    if(!bMobilized){
+        //if you're below the first article
+        if (bFixIt){
+            $("#nav_container").css({
+                'position': 'absolute',
+                'top': '0px'
+            });
+            bFixIt = true;
+        }
+        //if you're above the first article
+        else if (!bFixIt){
+            $("#nav_container").css({
+                'position': 'absolute',
+                'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px'
+            });
+            bFixIt = false;
+        }
     }
 }
 
@@ -117,14 +119,20 @@ function CheckSideBar(){
 
 function Mobilize(bMob) {
     if(bMob){
-        $(".fader").animate({opacity: '0'}, 250,
-            function(){$("#nav").animate({width:"0px"}, 250)}
-        );
+        $(".fader").animate({opacity: '0'}, 150,
+            function(){
+                $("#nav").animate({width:"0px"}, 150,
+                function(){
+                    $("#nav_container").animate({top:0}, 150)
+        })});
     }
     else{
-        $("#nav").animate({width:"100%"}, 250,
-            function(){$(".fader").animate({opacity: '1'}, 250)}
-        );
+        $("#nav_container").animate({bottom:0}, 150, 
+            function(){
+                $("#nav").animate({width:"100%"}, 250,
+                function(){
+                    $(".fader").animate({opacity: '1'}, 250)}
+        );});
         ClickLogo(true);
     }
 }

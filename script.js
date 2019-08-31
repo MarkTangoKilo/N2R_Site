@@ -35,7 +35,9 @@ function InitialState(){
     bHiddenNavOpen = false;
 
     //INITIAL OPENING
-    $("#home_photo").fadeIn(500);
+    if(this.complete){
+        $("#home_photo").fadeIn(1000);
+    }
 }
 
     /*background-color: rgba(171, 185, 192, 1)*/
@@ -90,6 +92,7 @@ function CheckScroll(){
 function ChangeBoxSize(bFixIt) {
     GetDimensions();
     if(!bMobilized){
+        $("#logoButton").css({'opactiy': 1});
         //if you're below the first article
         if (bFixIt){
             $("#nav_container").css({
@@ -108,7 +111,15 @@ function ChangeBoxSize(bFixIt) {
             });
             bFixIt = false;
         }
-    }
+    }//*
+    else{
+        if(bFixIt){
+            $("#logoButton").css({ 'opacity': 1 });
+        }
+        else{
+            $("#logoButton").css({ 'opacity': curr_spot/spot_height});
+        }
+    }//*/
 }
 
 function CheckSideBar(){

@@ -32,6 +32,7 @@ function InitialState(){
     //INITIAL OPENING
     if(this.complete){
         $("#home_photo").fadeIn(1000);
+        $("#home_text").fadeIn(1000);
     }
 }
 
@@ -75,7 +76,7 @@ function CheckScroll(){
     GetDimensions();
     Faders();
     LogoFade(bPastMain);
-    
+
     if(!bFixed && bPastMain){
         ChangeBoxSize(bFixed = true);
     }

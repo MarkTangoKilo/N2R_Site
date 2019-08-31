@@ -62,8 +62,9 @@ footer{
 #about{
 	height:300vh;
 }
-#home, #dates, #merch, #music{
-	height:100vh;
+#home, #dates, #merch, #music, #home_photo{
+    height:100vh;
+    width:100%;
 }
 /***************************************/
 
@@ -81,6 +82,22 @@ footer{
 	padding-top:40vh;
 	min-height:20em;
 }
+#home{
+    background-color: rgba(157,75,16,1);
+    background-image: url("N2R_Pics/wide_main_no.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#home_photo{
+    background-image: url("N2R_Pics/n2rlogo.png");
+    background-size: cover;
+    margin:auto;
+    position:fixed;
+    height:500px;
+    width:500px;
+}
 /*about*/
 .pic{
 
@@ -90,6 +107,9 @@ footer{
 	height:100%;
 	width:40%;
 	font-size:5em;
+}
+#about{
+
 }
 .about{
 
@@ -101,6 +121,9 @@ footer{
 	font-size:5em;
 }
 /*dates*/
+#dates{
+
+}
 #calendar{
 
     background-color:red;
@@ -118,6 +141,9 @@ footer{
 	height:100%;
 }
 /*merch*/
+#music{
+
+}
 #shirts{
     
     background-color:orange;
@@ -142,6 +168,9 @@ footer{
 	width:100%;
 }
 /*music*/
+#merch{
+
+}
 #musicLogo{
     
     background-color:magenta;

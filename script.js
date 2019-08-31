@@ -33,8 +33,13 @@ function InitialState(){
         bMobilized = true;
     }
     bHiddenNavOpen = false;
+
+    //INITIAL OPENING
+    $("#home_photo").fadeIn(500);
 }
 
+    /*background-color: rgba(171, 185, 192, 1)*/
+    /*background-color: rgba(50, 78, 95, 1)*/
 function GetDimensions(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
@@ -89,15 +94,17 @@ function ChangeBoxSize(bFixIt) {
         if (bFixIt){
             $("#nav_container").css({
                 'position': 'absolute',
-                'top': '0px'
+                'top': '0px',
+                'opacity':'1'
             });
             bFixIt = true;
         }
         //if you're above the first article
         else if (!bFixIt){
-            $("#nav_container").css({
+           $("#nav_container").css({
                 'position': 'absolute',
-                'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px'
+                'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px',
+                'opacity': curr_spot/spot_height
             });
             bFixIt = false;
         }

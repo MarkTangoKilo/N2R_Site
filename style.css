@@ -96,6 +96,7 @@ footer{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    width:auto;
 }
 #home_text{
     background-image: url("N2R_Pics/n2rtext.png");
@@ -103,30 +104,53 @@ footer{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    background-size: 100% 100%;
+    opacity:.7;
 }
 /*conditional sizing*/
 @media only screen and (min-width:750px){
     #home_photo{
-        top:2%;
-        height:400px;
-        width:400px;
+        top:2vh;
+        height:35vw;
+        width:35vw;
+        max-width:400px;
+        max-height:400px;
+        
     }
     #home_text{
-        bottom:2%;
-        height:50px;
-        width:800px;
+        bottom:30%;
+        width:80vw;
+        height:4.5vw;
+        max-width:925px;
+        max-height:52px;
+        min-width:600px;
+        min-height:34px;
     }
 }
-@media only screen and (max-width:750px){
+@media only screen and (max-width:749px) and (min-width:641px){
     #home_photo{
         top:5%;
         height:300px;
         width:300px;
     }
     #home_text{
-        bottom:5%;
-        height:42px;
-        width:600px;
+        bottom:30%;
+        width:80vw;
+        height:4.5vw;
+        min-width:600px;
+        min-height:34px;
+    }
+}
+@media only screen and (max-width:640px){
+    #home_photo{
+        top:5%;
+        height:300px;
+        width:300px;
+    }
+    #home_text{
+        bottom:30%;
+        width:80vw;
+        height:4.5vw;
     }
 }
 /*about*/

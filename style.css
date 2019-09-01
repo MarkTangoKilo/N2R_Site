@@ -110,15 +110,17 @@ footer{
 /*conditional sizing*/
 @media only screen and (min-width:750px){
     #home_photo{
-        top:2vh;
+        top:5%;
         height:35vw;
         width:35vw;
         max-width:400px;
         max-height:400px;
+        min-width:325px;
+        min-height:325px;
         
     }
     #home_text{
-        bottom:30%;
+        bottom:15%;
         width:80vw;
         height:4.5vw;
         max-width:925px;
@@ -134,7 +136,7 @@ footer{
         width:300px;
     }
     #home_text{
-        bottom:30%;
+        bottom:15%;
         width:80vw;
         height:4.5vw;
         min-width:600px;
@@ -148,7 +150,7 @@ footer{
         width:300px;
     }
     #home_text{
-        bottom:30%;
+        bottom:15%;
         width:80vw;
         height:4.5vw;
     }

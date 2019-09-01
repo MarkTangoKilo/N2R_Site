@@ -9,8 +9,6 @@ var bHiddenNavOpen = new Boolean(false);
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
-    InitialState();
-    CheckResize();
     $("#logoButton").click(CheckSideBar);
     $("#view").click(CloseSideBar);
     $("#li_About").click(function(){ScrollToHere(1)});
@@ -21,19 +19,16 @@ $(document).ready(function () {
     $("#li_Dates_hidden").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch_hidden").click(function(){ScrollToHere(5)});
     $("#li_Contact_hidden").click(function(){ScrollToHere(6)});
-    CheckScroll();
+    InitialState();
 });
 
 function InitialState(){
     GetDimensions();
     bMobilized = spot_width <= 700 ? true : false;
+    bPastMain = curr_spot > spot_height - $("#nav_container").height() ? true : false;
     bHiddenNavOpen = false;
-
-    //INITIAL OPENING
-    if(this.complete){
-        $("#home_photo").fadeIn(1000);
-        $("#home_text").fadeIn(1000);
-    }
+    
+    CheckScroll();
 }
 
     /*background-color: rgba(171, 185, 192, 1)*/
@@ -42,12 +37,6 @@ function GetDimensions(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
-    if(curr_spot > spot_height - $("#nav_container").height()){
-        bPastMain = true;
-    }
-    else{
-        bPastMain = false;
-    }
 }
 
 function CheckResize(){

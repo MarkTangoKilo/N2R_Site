@@ -256,6 +256,7 @@ footer{
     z-index:100;
 }
 #nav_container{
+    position:absolute;
     float:right;
     height:150px;
     width:100%;

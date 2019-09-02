@@ -1,10 +1,15 @@
+//current dimensions of the page
 var curr_spot;
 var spot_height;
 var spot_width;
-var bMobilized = new Boolean(false);
-var bFixed = new Boolean(true);
+//booleans dealing with current state of the js
+var bMobile = new Boolean(false);
 var bPastMain = new Boolean(true);
 var bHiddenNavOpen = new Boolean(false);
+//booleans dealing with current state of the page
+var bFixed = new Boolean(true);
+var bMobilized = new Boolean(true);
+
 
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
@@ -19,62 +24,58 @@ $(document).ready(function () {
     $("#li_Dates_hidden").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch_hidden").click(function(){ScrollToHere(5)});
     $("#li_Contact_hidden").click(function(){ScrollToHere(6)});
-    InitialState();
+    CheckResize(false);
 });
 
-function InitialState(){
-    GetDimensions();
-    bHiddenNavOpen = false;
-
-    bMobilized = spot_width <= 700 ? true : false;
-    
-    /*Check Resize*/
-    ChangeBoxSize(bFixed);
-    ChangeScroll(bMobilized);
-}
-
+/* ALL OF THE CHECKS */
 function GetDimensions(){
+    //dimensions
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
-
+    
     bPastMain = curr_spot > spot_height - $("#nav_container").height() ? true : false;
+    bMobile = spot_width < 700 ? true : false;
+    bHiddenNavOpen = $("#sidemenu").width() > 0 ? true : false;
+    //basic methods
+    LogoFade(bPastMain);
+    Faders();
 }
 
-function CheckResize(){
+function CheckResize(bCheck = true){
     GetDimensions();
-    LogoFade();
 
-    if(bPastMain){
-        ChangeBoxSize(bFixed = true);
-    }
-    else{
-        ChangeBoxSize(bFixed = false);
-    }
-
-    if(!bMobilized && spot_width <= 700){
+    if(bMobile && (bCheck ? !bMobilized : true)){
         Mobilize(bMobilized = true);
     }
-    else if(bMobilized && spot_width > 700){
+    else if(!bMobile && (bCheck ? bMobilized : true)){
         Mobilize(bMobilized = false);
+    }
+
+    if(!bMobile){
+        if(bPastMain && (bCheck ? !bFixed : true)){
+            ChangeBoxSize(bFixed = true);
+        }
+        else if(!bPastMain){
+            ChangeBoxSize(bFixed = false);
+        }
     }
 }
 
 function CheckScroll(){
     GetDimensions();
-    Faders();
-    LogoFade(bPastMain);
 
-    if(!bFixed && bPastMain){
+    if(bPastMain && !bFixed){
         ChangeBoxSize(bFixed = true);
     }
-    else if (!bPastMain){
+    else if(!bPastMain){
         ChangeBoxSize(bFixed = false);
     }
 }
 
 function CheckSideBar(){
-    if(bMobilized){
+    GetDimensions();
+    if(bMobile){
         if(!bHiddenNavOpen){
             ClickLogo(false);
         }
@@ -84,29 +85,27 @@ function CheckSideBar(){
     }
 }
 
+
+/* ALL OF THE BIG CHANGES */
 function ChangeBoxSize(bFixIt) {
-    GetDimensions();
-    if(!bMobilized){
-        $("#logoButton").css({'opactiy': 1});
-        //if you're below the first article
-        if (bFixIt){
-            $("#nav_container").css({
-                'position': 'absolute',
-                'top': '0px',
-                'opacity':'1'
-            });
-            bFixIt = true;
-        }
-        //if you're above the first article
-        else if (!bFixIt){
-           $("#nav_container").css({
-                'position': 'absolute',
-                'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px',
-                'opacity': curr_spot/spot_height
-            });
-            bFixIt = false;
-        }
+    $("#logoButton").css({'opactiy': 1});
+    //if you're below the first article
+    if (bFixIt){
+        $("#nav_container").css({
+            'top': '0px',
+            'opacity':'1'
+        });
+        bFixIt = true;
     }
+    //if you're above the first article
+    else if (!bFixIt){
+        $("#nav_container").css({
+            'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px',
+            'opacity': curr_spot/spot_height
+        });
+        bFixIt = false;
+    }
+    
 }
 
 function Mobilize(bMob) {
@@ -129,6 +128,7 @@ function Mobilize(bMob) {
     }
 }
 
+/* ALL OF THE NAV BAR CHANGES */
 function Faders(){
     if(!bPastMain){
         var v = $("#nav").height()*curr_spot/spot_height * 2;
@@ -176,6 +176,7 @@ function CloseSideBar(){
     }
 }
 
+/* ACCESSORY METHODS */
 function ScrollToHere(val){
     GetDimensions();
     var iTargetValue = val * spot_height;

@@ -24,40 +24,39 @@ $(document).ready(function () {
 
 function InitialState(){
     GetDimensions();
-    bMobilized = spot_width <= 700 ? true : false;
-    bPastMain = curr_spot > spot_height - $("#nav_container").height() ? true : false;
     bHiddenNavOpen = false;
+
+    bMobilized = spot_width <= 700 ? true : false;
     
-    CheckScroll();
+    /*Check Resize*/
+    ChangeBoxSize(bFixed);
+    ChangeScroll(bMobilized);
 }
 
-    /*background-color: rgba(171, 185, 192, 1)*/
-    /*background-color: rgba(50, 78, 95, 1)*/
 function GetDimensions(){
     curr_spot = $(window).scrollTop();
     spot_height = $(window).height();
     spot_width = $(window).width();
+
+    bPastMain = curr_spot > spot_height - $("#nav_container").height() ? true : false;
 }
 
 function CheckResize(){
     GetDimensions();
+    LogoFade();
 
     if(bPastMain){
-        bFixed = true;
-        ChangeBoxSize(true);
+        ChangeBoxSize(bFixed = true);
     }
     else{
-        bFixed = false;
-        ChangeBoxSize(false);
+        ChangeBoxSize(bFixed = false);
     }
 
     if(!bMobilized && spot_width <= 700){
-        bMobilized = true;
-        Mobilize(true);
+        Mobilize(bMobilized = true);
     }
     else if(bMobilized && spot_width > 700){
-        bMobilized = false;
-        Mobilize(false);
+        Mobilize(bMobilized = false);
     }
 }
 
@@ -71,6 +70,17 @@ function CheckScroll(){
     }
     else if (!bPastMain){
         ChangeBoxSize(bFixed = false);
+    }
+}
+
+function CheckSideBar(){
+    if(bMobilized){
+        if(!bHiddenNavOpen){
+            ClickLogo(false);
+        }
+    }
+    else{
+        ScrollToHere(0);
     }
 }
 
@@ -96,17 +106,6 @@ function ChangeBoxSize(bFixIt) {
             });
             bFixIt = false;
         }
-    }//*
-}
-
-function CheckSideBar(){
-    if(bMobilized){
-        if(!bHiddenNavOpen){
-            ClickLogo(false);
-        }
-    }
-    else{
-        ScrollToHere(0);
     }
 }
 
@@ -132,16 +131,14 @@ function Mobilize(bMob) {
 
 function Faders(){
     if(!bPastMain){
-        var v = $("#nav").height()*curr_spot/spot_height;
-        $("#topFader").height($("#nav").height() - v);
-        $("#paddingBar").height($("#nav").height() - v);
+        var v = $("#nav").height()*curr_spot/spot_height * 2;
+        $("#topFader").height(($("#nav").height()) * 2 - v);
         $("#botFader").height(v);
         
     }   
     else{
         $("#topFader").height(0);
-        $("#paddingBar").height(0);
-        $("#botFader").height($("#nav").height());
+        $("#botFader").height($("#nav").height() * 2);
     }
 }
 
@@ -152,16 +149,6 @@ function LogoFade(bFixIt){
     else{
         $("#logoButton").css({ 'opacity': curr_spot/spot_height});
     }
-}
-
-function ScrollToHere(val){
-    GetDimensions();
-    var iTargetValue = val * spot_height;
-
-    $('html, body').animate({scrollTop: iTargetValue}, 1000);
-    $('html, body').animate({
-        scrollTop: iTargetValue
-    }, 1000, 'swing');
 }
 
 function ClickLogo(bShrink){
@@ -188,3 +175,18 @@ function CloseSideBar(){
         ClickLogo(true);
     }
 }
+
+function ScrollToHere(val){
+    GetDimensions();
+    var iTargetValue = val * spot_height;
+
+    $('html, body').animate({scrollTop: iTargetValue}, 1000);
+    $('html, body').animate({
+        scrollTop: iTargetValue
+    }, 1000, 'swing');
+}
+
+
+
+/*background-color: rgba(171, 185, 192, 1)*/
+/*background-color: rgba(50, 78, 95, 1)*/

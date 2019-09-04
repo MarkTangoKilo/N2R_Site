@@ -343,6 +343,29 @@ li.li_item:hover, li.li_item_hidden:hover{
 }
 /***************************************/
 
+/*DOWN ARROWS*/
+/***************************************/
+.downArrows{
+    width:101px;
+    position:absolute;
+    bottom:30%;
+    opacity:.7;
+}
+.downArrow{
+    content:url("N2R_Pics/down_arrow.png");
+    width:100px;
+    height:30px;
+}
+#leftDownArrows{
+    float:left;
+    left:20%;
+}
+#rightDownArrows{
+    float:right;
+    right:20%;
+}
+
+/***************************************/
 
 /*MOBILE*/
 /***************************************/

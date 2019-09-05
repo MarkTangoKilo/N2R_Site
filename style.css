@@ -347,7 +347,7 @@ li.li_item:hover, li.li_item_hidden:hover{
 /***************************************/
 .downArrows{
     width:150px;
-    height:80px;
+    height:75px;
     position:absolute;
     bottom:23%;
     opacity:.7;
@@ -411,12 +411,12 @@ li.li_item:hover, li.li_item_hidden:hover{
 
 .tooltip{
     position:absolute;
-    background-color:grey;
     text-align:center;
     border-radius:2px;
     z-index:1001;
     margin-right:-50%;
 }
+
 
 /***************************************/
 

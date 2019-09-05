@@ -346,15 +346,28 @@ li.li_item:hover, li.li_item_hidden:hover{
 /*DOWN ARROWS*/
 /***************************************/
 .downArrows{
-    width:101px;
+    width:100px;
+    height:100px;
     position:absolute;
     bottom:30%;
     opacity:.7;
+    border:none;
+    z-index:1000;
+}
+.downArrows:hover {
+    border-radius: 50%;
+    border:2px solid grey !important;
 }
 .downArrow{
     content:url("N2R_Pics/down_arrow.png");
-    width:100px;
-    height:30px;
+    width:60px;
+    position:relative;
+    height:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    top:15%;
+    margin:0;
+    padding:0;
 }
 #leftDownArrows{
     float:left;
@@ -365,8 +378,60 @@ li.li_item:hover, li.li_item_hidden:hover{
     right:20%;
 }
 
+/*animations*/
+
+.topDownArrow{
+    animation: topDownArrowFade 1s infinite !important;
+}
+.midDownArrow{
+    animation: midDownArrowFade 1s infinite !important;
+}
+.botDownArrow{
+    animation: botDownArrowFade 1s infinite !important;
+}
+
+@keyframes topDownArrowFade{
+    0%{ opacity:.7; }
+    50%{ opacity:.2; }
+    100%{ opacity:.7; }
+}
+@keyframes midDownArrowFade{
+    0%{ opacity:.45; }
+    25%{ opacity:.7; }
+    50%{ opacity:.45; }
+    75%{ opacity:.2; }
+    100%{ opacity:.45; }
+}
+@keyframes botDownArrowFade{
+    0%{ opacity:.2; }
+    50%{ opacity:.7; }
+    100%{ opacity:.2; }
+}
+
+.tooltip{
+    position:absolute;
+    background-color:grey;
+    text-align:center;
+    border-radius:2px;
+    z-index:1001;
+    margin-top:-50%;
+}
+.rightToolTip:hover{
+    visibility:visible;
+    z-index:1001;
+}
+.leftToolTip:hover{
+    visibility:visible;
+    z-index:1001;
+}
+
 /***************************************/
 
 /*MOBILE*/
 /***************************************/
+/***************************************/
+
+/*ARROWS ANIMATION*/
+/***************************************/
+
 /***************************************/

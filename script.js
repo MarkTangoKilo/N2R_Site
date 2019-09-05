@@ -14,8 +14,7 @@ var bMobilized = new Boolean(true);
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
-    $(".downArrow").mouseover(HoverGetBorder);
-    $(".downArrows").mouseover(HoverGetBorder, HoverLoseBorder);
+    $(".downArrows").click(function(){ScrollToHere(1)});
     $("#logoButton").click(CheckSideBar);
     $("#view").click(CloseSideBar);
     $("#li_About").click(function(){ScrollToHere(1)});
@@ -187,18 +186,6 @@ function ScrollToHere(val){
     $('html, body').animate({
         scrollTop: iTargetValue
     }, 1000, 'swing');
-}
-
-function HoverGetBorder(){
-    $("downArrows").css({
-        border:'2px solid grey'
-    });
-}
-
-function HoverLoseBorder(){
-    $("downArrows").css({
-        border:'none'
-    });
 }
 /*background-color: rgba(171, 185, 192, 1)*/
 /*background-color: rgba(50, 78, 95, 1)*/

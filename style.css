@@ -349,9 +349,10 @@ li.li_item:hover, li.li_item_hidden:hover{
     width:150px;
     height:75px;
     position:absolute;
-    bottom:23%;
+    bottom:24%;
     opacity:.7;
-    border:none;
+    border-radius: 50%;
+    border:2px solid transparent !important;
     z-index:1000;
     left: 50%;
     transform: translateX(-50%);
@@ -359,6 +360,7 @@ li.li_item:hover, li.li_item_hidden:hover{
 .downArrows:hover {
     border-radius: 50%;
     border:2px solid grey !important;
+    animation: swell 1s infinite;
 }
 .downArrow{
     content:url("N2R_Pics/down_arrow.png");
@@ -416,7 +418,15 @@ li.li_item:hover, li.li_item_hidden:hover{
     z-index:1001;
     margin-right:-50%;
 }
+@keyframes swell{
+    0%{ box-shadow: 0 0 5px darkgrey;}
+    50%{ box-shadow: 0 0 20px darkgrey;}
+    100%{ box-shadow: 0 0 5px darkgrey;}
+}
 
+@keyframes mymove {
+    50% {box-shadow: 0 0 30px blue;}
+  }
 
 /***************************************/
 

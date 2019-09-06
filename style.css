@@ -172,11 +172,26 @@ footer{
 
     background-color:yellow;
     opacity:.5;
-
+    font-size:0px;
 	height:100%;
 	width:60%;
 	font-size:5em;
 }
+#aboutBody{
+    height:90vh;
+    width:100%;
+}
+header#band{
+    background-color: grey;
+    height:10vh;
+    width:100%;
+}
+span#bandBody{
+    background-color: red;
+    height:90vh;
+    width:100%;
+}
+
 /*dates*/
 #dates{
 

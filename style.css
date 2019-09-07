@@ -169,7 +169,6 @@ footer{
 
 }
 .about{
-
     background-color:yellow;
     opacity:.5;
     font-size:0px;
@@ -183,12 +182,12 @@ footer{
 }
 header#band{
     background-color: grey;
-    height:10vh;
+    height:30vh;
     width:100%;
 }
-span#bandBody{
+#aboutBody{
     background-color: red;
-    height:90vh;
+    height:100vh;
     width:100%;
 }
 
@@ -306,11 +305,11 @@ li.li_item:hover, li.li_item_hidden:hover{
 }
 #topFader{
     position: relative;
-    background-image:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,1));
+    background-image:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,.5));
 }
 #botFader{
     position: relative;
-    background-image:linear-gradient(to top, rgba(0,0,255,0), rgba(0,0,255,1));
+    background-image:linear-gradient(to top, rgba(0,0,255,0), rgba(0,0,255,.5));
 }
 .fader{
     height:50px;

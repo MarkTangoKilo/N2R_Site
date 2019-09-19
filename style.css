@@ -29,6 +29,9 @@ article{
 	width:100%;
     min-height:100vh;
     z-index:3;
+    /* AFTER ALL IMAGES ADDED, UNCOMMENT THIS SHIT
+        background-color:black;
+    */
 }
 section{
 	width:100%;

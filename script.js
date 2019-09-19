@@ -14,17 +14,17 @@ var bMobilized = new Boolean(true);
 $(document).ready(function () {
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
-    $(".downArrows").click(function(){ScrollToHere(1)});
+    $(".downArrows").click(function(){ScrollToHere($("#about"))});
     $("#logoButton").click(CheckSideBar);
     $("#view").click(CloseSideBar);
-    $("#li_About").click(function(){ScrollToHere(this)});
-    $("#li_Dates").click(function(){ScrollToHere(4)});
-    $("#li_MusicMerch").click(function(){ScrollToHere(5)});
-    $("#li_Contact").click(function(){ScrollToHere(6)});
-    $("#li_About_hidden").click(function(){ScrollToHere(1)});
-    $("#li_Dates_hidden").click(function(){ScrollToHere(4)});
-    $("#li_MusicMerch_hidden").click(function(){ScrollToHere(5)});
-    $("#li_Contact_hidden").click(function(){ScrollToHere(6)});
+    $("#li_About").click(function(){ScrollToHere($("#about"))});
+    $("#li_Dates").click(function(){ScrollToHere($("#dates"))});
+    $("#li_MusicMerch").click(function(){ScrollToHere($("#music"))});
+    $("#li_Contact").click(function(){ScrollToHere($("#merch"))});
+    $("#li_About_hidden").click(function(){ScrollToHere($("#about"))});
+    $("#li_Dates_hidden").click(function(){ScrollToHere($("#dates"))});
+    $("#li_MusicMerch_hidden").click(function(){ScrollToHere($("#music"))});
+    $("#li_Contact_hidden").click(function(){ScrollToHere($("#merch"))});
     CheckResize(false);
 });
 
@@ -82,7 +82,7 @@ function CheckSideBar(){
         }
     }
     else{
-        ScrollToHere(0);
+        ScrollToHere($("#home"));
     }
 }
 
@@ -179,12 +179,8 @@ function CloseSideBar(){
 
 /* ACCESSORY METHODS */
 function ScrollToHere(val){
-    GetDimensions();
-    var iTargetValue = val * spot_height;
-
-    $('html, body').animate({scrollTop: iTargetValue}, 1000);
     $('html, body').animate({
-        scrollTop: iTargetValue
+        scrollTop: val.offset().top
     }, 1000, 'swing');
 }
 /*background-color: rgba(171, 185, 192, 1)*/

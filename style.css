@@ -50,10 +50,7 @@ footer{
 }
 /*classes*/
 /*ids*/
-section#about{
-    height:66vh;
-    width:100%;
-}
+
 #home, #dates, #merch, #music, #home_photo{
     height:100vh;
     width:100%;
@@ -109,7 +106,6 @@ section#about{
         max-height:400px;
         min-width:325px;
         min-height:325px;
-        
     }
     #home_text{
         bottom:15%;
@@ -150,21 +146,14 @@ section#about{
 
 /*about*/
 .pic{
-
     background-color:black;
     opacity:.5;
-
-	height:100%;
-	width:40%;
 	font-size:5em;
 }
 .about{
-    background-color:yellow;
-    opacity:.5;
     font-size:0px;
-	height:100%;
-	width:60%;
-	font-size:5em;
+    font-size:5em;
+    background-color:yellow
 }
 #bandAbout{
     position: relative;
@@ -175,10 +164,44 @@ section#about{
 }
 @media only screen and (min-width:901px){
     #bandAbout{ background-image: url("N2R_Pics/bandAbout.jpg"); }
+    .pic{
+        height:100%;
+        width:50%;
+    }
+    .about{
+        height:100%;
+        width:50%;
+    }
+    #Rob{
+        float:right;
+    }
+    #about{
+        height:280vh;
+    }
+    #aboutPiece{
+        height:120vh;
+    }
 }
 @media only screen and (max-width:900px){
     #bandAbout{ background-image: url("N2R_Pics/bandAbout_mobile.jpg"); }
+    .pic{
+        height:50%;
+        width:100%;
+    }
+    .about{
+        height:50%;
+        width:100%;
+    }
+    #about{
+        height:400vh;
+    }
+    #aboutPiece{
+        height:100vh;
+    }
 }
+
+
+
 #AboutBody{
     /*
         difference between absolute and relative is that 
@@ -201,7 +224,10 @@ section#about{
 #AboutBodyText{
     font-size:20px;
 }
-
+.aboutPiece{
+    width:100%;
+    height:60vh
+}
 /*dates*/
 #dates{
 

@@ -164,21 +164,39 @@ section#about{
 	font-size:5em;
 }
 #bandAbout{
-    background-color:red;
-    opacity:.7;
+    position: relative;
+    background-image: url("N2R_Pics/bandAbout.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media only screen and (min-width:901px){
+    #bandAbout{ background-image: url("N2R_Pics/bandAbout.jpg"); }
+}
+@media only screen and (max-width:900px){
+    #bandAbout{ background-image: url("N2R_Pics/bandAbout_mobile.jpg"); }
 }
 #AboutBody{
-    height:100px;
-    width:80%;
-    top:50%;
-    left: 50%;
-    transform: translateX(-50%);
+    /*
+        difference between absolute and relative is that 
+        absolute would make it so that the div is at the top, but
+        then pushed up 5%, but absolute makes it so that the div
+        is pushed down to the bottom like I told it to and then
+        pushed up 5%. Also, the position needs to be anything other 
+        than static or default in order for this to work, I don't 
+        know why...
+    */
     position: absolute;
+    min-height:100px;
+    width:80%;
+    bottom:7%;
+    left:50%;
+    transform: translateX(-50%);
     text-align:center;
+    background-color:rgba(50,50,50,.7);
 }
 #AboutBodyText{
     font-size:20px;
-    background-color:rgba(50,50,50,.7);
 }
 
 /*dates*/

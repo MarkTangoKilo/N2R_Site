@@ -17,7 +17,7 @@ $(document).ready(function () {
     $(".downArrows").click(function(){ScrollToHere(1)});
     $("#logoButton").click(CheckSideBar);
     $("#view").click(CloseSideBar);
-    $("#li_About").click(function(){ScrollToHere(1)});
+    $("#li_About").click(function(){ScrollToHere(this)});
     $("#li_Dates").click(function(){ScrollToHere(4)});
     $("#li_MusicMerch").click(function(){ScrollToHere(5)});
     $("#li_Contact").click(function(){ScrollToHere(6)});

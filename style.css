@@ -155,6 +155,11 @@ footer{
     background-color:yellow;
     position:relative;
     padding:5%;
+    /*
+    why did this work here... before the fucking thing
+    went on and 
+    */
+    overflow:hidden;
 }
 #bandAbout{
     position: relative;
@@ -201,8 +206,7 @@ footer{
     }
 }
 .aboutText{
-    font-size: 5em;
-    opacity: 1;
+    font-size: 15px;
     background-color: rgba(157,75,16,.7);
     height: 100%;
     width: 100%;

@@ -116,6 +116,12 @@ footer{
         min-width:600px;
         min-height:34px;
     }
+    #RobPic{
+        float:right;
+    }
+    #RobAbout{
+        float:left;
+    }
 }
 @media only screen and (max-width:749px) and (min-width:641px){
     #home_photo{
@@ -130,6 +136,12 @@ footer{
         min-width:600px;
         min-height:34px;
     }
+    #RobPic{
+        float:right;
+    }
+    #RobAbout{
+        float:left;
+    }
 }
 @media only screen and (max-width:640px){
     #home_photo{
@@ -142,6 +154,12 @@ footer{
         width:80vw;
         height:4.5vw;
     }
+    #RobPic{
+        float:left;
+    }
+    #RobAbout{
+        float:right;
+    }
 }
 
 /*about*/
@@ -149,12 +167,15 @@ footer{
     background-color:black;
     opacity:.5;
 	font-size:5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .about{
     font-size:0px;
     background-color:yellow;
     position:relative;
-    padding:5%;
+    padding:2%;
     /*
     why did this work here... before the fucking thing
     went on and 
@@ -212,8 +233,6 @@ footer{
     width: 100%;
     z-index: 500;
 }
-
-
 #AboutBody{
     /*
         difference between absolute and relative is that 
@@ -238,8 +257,20 @@ footer{
 }
 .aboutPiece{
     width:100%;
-    height:60vh
+    height:60vh;
+    font-size:0px;
+    overflow:hidden;
 }
+#MarkPic{
+    background-image:url("N2R_Pics/Marks_Personal.jpg");
+}
+#RobPic{
+    background-image:url("N2R_Pics/Robs_Personal.jpg");
+}
+#StevePic{
+    background-image:url("N2R_Pics/Steves_Personal.jpg");
+}
+
 /*dates*/
 #dates{
 

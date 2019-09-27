@@ -47,9 +47,7 @@ footer{
     bottom:0;
     z-index:5;
 }
-/*classes*/
-/*ids*/
-
+/*classes and id's*/
 #home, #dates, #merch, #music, #home_photo{
     height:100vh;
     width:100%;
@@ -61,7 +59,7 @@ footer{
 
 /*#region SPECIAL CSS*/
 /***************************************/
-/*home*/
+/*#region home*/
 #logo_text{
 	/*... WHY!!!*/
 	padding-top:40vh;
@@ -157,8 +155,8 @@ footer{
         float:right;
     }
 }
-
-/*about*/
+/*#endregion*/
+/*#region about*/
 .pic{
     background-color:black;
     background-position: center;
@@ -265,8 +263,8 @@ footer{
 #StevePic{
     background-image:url("N2R_Pics/Steves_Personal.jpg");
 }
-
-/*dates*/
+/*#endregion*/
+/*#region dates*/
 @media only screen and (min-width:751px){
     #calendar{
         background-color:red;
@@ -299,7 +297,8 @@ footer{
         height:50%;
     }
 }
-/*merch*/
+/*#endregion*/
+/*#region merch*/
 /*///HERE/// Get an svg logo and add it in her*/
 @media only screen and (min-width:751px){
     #shirts{
@@ -359,7 +358,8 @@ footer{
         width:100%;
     }
 }
-/*music*/
+/*#endregion*/
+/*#region music*/
 #music{
     font-size:0px;
 }
@@ -396,6 +396,7 @@ footer{
         width:100%;
     }
 }
+/*#endregion*/
 /*#endregion****************************/
 
 /*#region NAV*/

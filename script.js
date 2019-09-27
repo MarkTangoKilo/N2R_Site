@@ -1,3 +1,4 @@
+/*#region CLASS LEVEL ITEMS*/
 //current dimensions of the page
 var curr_spot;
 var spot_height;
@@ -9,9 +10,7 @@ var bHiddenNavOpen = new Boolean(false);
 //booleans dealing with current state of the page
 var bFixed = new Boolean(true);
 var bMobilized = new Boolean(true);
-
-
-$(document).ready(function () {
+$(document).ready(function(){
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
     $(".downArrows").click(function(){ScrollToHere($("#about"))});
@@ -27,8 +26,9 @@ $(document).ready(function () {
     $("#li_Contact_hidden").click(function(){ScrollToHere($("#merch"))});
     CheckResize(false);
 });
+/*#endregion*/
 
-/* ALL OF THE CHECKS */
+/*#region ALL OF THE CHECKS */
 function GetDimensions(){
     //dimensions
     curr_spot = $(window).scrollTop();
@@ -85,9 +85,9 @@ function CheckSideBar(){
         ScrollToHere($("#home"));
     }
 }
+/*#endregion*/
 
-
-/* ALL OF THE BIG CHANGES */
+/*#region ALL OF THE BIG CHANGES */
 function ChangeBoxSize(bFixIt) {
     $("#logoButton").css({'opactiy': 1});
     //if you're below the first article
@@ -108,7 +108,6 @@ function ChangeBoxSize(bFixIt) {
     }
     
 }
-
 function Mobilize(bMob) {
     if(bMob){
         $(".fader").animate({opacity: '0'}, 150,
@@ -128,8 +127,9 @@ function Mobilize(bMob) {
         ClickLogo(true);
     }
 }
+/*#endregion*/
 
-/* ALL OF THE NAV BAR CHANGES */
+/*#region ALL OF THE NAV BAR CHANGES */
 function Faders(){
     if(!bPastMain){
         var v = $("#nav").height()*curr_spot/spot_height * 2;
@@ -176,12 +176,15 @@ function CloseSideBar(){
         ClickLogo(true);
     }
 }
+/*#endregion*/
 
-/* ACCESSORY METHODS */
+/*#region ACCESSORY METHODS */
 function ScrollToHere(val){
     $('html, body').animate({
         scrollTop: val.offset().top
     }, 1000, 'swing');
 }
+/*#endregion*/
+
 /*background-color: rgba(171, 185, 192, 1)*/
 /*background-color: rgba(50, 78, 95, 1)*/

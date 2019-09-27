@@ -1,13 +1,12 @@
-/*RESET DEFAULTS*/
+/*#region RESET DEFAULTS*/
 /***************************************/
 html, body, article, section, span, footer, nav, ul, li{
 	margin:0;
 	padding:0;
 }
-/***************************************/
+/*#endregion****************************/
 
-
-/*BASIC CONAINERS*/
+/*#region BASIC CONAINERS*/
 /***************************************/
 /*tags*/
 html{
@@ -35,9 +34,9 @@ article{
 }
 section{
 	width:100%;
-	height:100vh;
     font-size:0px;
     z-index: 4;
+    height:100%;
 }
 span{
     display:inline-block;
@@ -54,17 +53,14 @@ footer{
 #home, #dates, #merch, #music, #home_photo{
     height:100vh;
     width:100%;
+}#merch section, #music section #dates section{
+    height:100vh;
+    width:100%;
 }
-/***************************************/
+/*#endregion****************************/
 
-
-/*SPECIAL CSS*/
+/*#region SPECIAL CSS*/
 /***************************************/
-/*classes*/
-.smallcontainer{
-	height:100%;
-	width:50%;
-}
 /*home*/
 #logo_text{
 	/*... WHY!!!*/
@@ -165,7 +161,6 @@ footer{
 /*about*/
 .pic{
     background-color:black;
-	font-size:5em;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -176,8 +171,8 @@ footer{
     position:relative;
     padding:2%;
     /*
-    why did this work here... before the fucking thing
-    went on and 
+        why did this work here... before the fucking thing
+        went on and 
     */
     overflow:hidden;
 }
@@ -201,32 +196,34 @@ footer{
     #Rob{
         float:right;
     }
-    #about{
-        height:280vh;
+    .aboutText{
+        font-size:18px;
     }
-    #aboutPiece{
-        height:120vh;
+    .aboutPiece{
+        height:80vh;
     }
 }
 @media only screen and (max-width:750px){
     #bandAbout{ background-image: url("N2R_Pics/bandAbout_mobile.jpg"); }
     .pic{
-        height:50%;
+        height:70%;
         width:100%;
     }
     .about{
-        height:50%;
+        height:30%;
         width:100%;
     }
-    #about{
-        height:400vh;
+    .aboutText{
+        font-size:14px;
     }
-    #aboutPiece{
+    .aboutPiece{
         height:100vh;
     }
 }
+#bandAbout{
+    height:100vh;
+}
 .aboutText{
-    font-size: 15px;
     background-color: rgba(157,75,16,.7);
     height: 100%;
     width: 100%;
@@ -256,7 +253,6 @@ footer{
 }
 .aboutPiece{
     width:100%;
-    height:60vh;
     font-size:0px;
     overflow:hidden;
 }
@@ -271,81 +267,138 @@ footer{
 }
 
 /*dates*/
-#dates{
-
-}
-#calendar{
-
-    background-color:red;
-    opacity:.5;
-
-	width:50%;
-	height:100%;
-}
-#calendarInfo{
+@media only screen and (min-width:751px){
+    #calendar{
+        background-color:red;
+        opacity:.5;
     
-    background-color:green;
-    opacity:.5;
-
-	width:50%;
-	height:100%;
+        width:50%;
+        height:100%;
+    }
+    #calendarInfo{
+        background-color:green;
+        opacity:.5;
+    
+        width:50%;
+        height:100%;
+    }
+}
+@media only screen and (max-width:750px){
+    #calendar{
+        background-color:red;
+        opacity:.5;
+    
+        width:100%;
+        height:50%;
+    }
+    #calendarInfo{
+        background-color:green;
+        opacity:.5;
+    
+        width:100%;
+        height:50%;
+    }
 }
 /*merch*/
-/*///HERE/// 
-    Get an svg logo and add it in her
-*/
-#music{
-
+/*///HERE/// Get an svg logo and add it in her*/
+@media only screen and (min-width:751px){
+    #shirts{
+        background-color:orange;
+        background-image:url("N2R_Pics/tshirt.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100%;
+        width:50%;
+    }
+    .smallcontainer{
+        height:100%;
+        width:50%;
+    }
+    #otherthing{
+        background-color:blue;
+        opacity:.5;
+        height:50%;
+        width:100%;
+    }
+    #anotherthing{
+        
+        background-color:purple;
+        opacity:.5;
+        height:50%;
+        width:100%;
+    }
 }
-#shirts{
+@media only screen and (max-width:750px){
+    #shirts{
+        background-color:orange;
+        background-image:url("N2R_Pics/tshirt.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:70%;
+        width:100%;
+    }
+    .smallcontainer{
+        height:60%;
+        width:100%;
+    }
+    #otherthing{
+        background-color:blue;
+        opacity:.5;
     
-    background-color:orange;
-    background-image:url("N2R_Pics/tshirt.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-	height:100%;
-	width:50%;
-}
-#otherthing{
-    background-color:blue;
-    opacity:.5;
-
-	height:50%;
-	width:100%;
-}
-#anotherthing{
-    
-    background-color:purple;
-    opacity:.5;
-    
-	height:50%;
-	width:100%;
+        height:50%;
+        width:100%;
+    }
+    #anotherthing{
+        
+        background-color:purple;
+        opacity:.5;
+        
+        height:50%;
+        width:100%;
+    }
 }
 /*music*/
-#merch{
+#music{
     font-size:0px;
 }
-#musicLogo{
-    
-    background-color:magenta;
-    opacity:.5;
-    
-	height:100%;
-	width:40%;
+@media only screen and (min-width:751px){
+    #musicLogo{
+        background-color:magenta;
+        opacity:.5;
+        
+        height:100%;
+        width:40%;
+    }
+    #musicList{
+        
+        background-color:greenyellow;
+        opacity:.5;
+        
+        height:100%;
+        width:60%;
+    }
 }
-#musicList{
-    
-    background-color:greenyellow;
-    opacity:.5;
-    
-	height:100%;
-	width:60%;
+@media only screen and (max-width:750px){
+    #musicLogo{
+        background-color:magenta;
+        opacity:.5;
+        
+        height:40%;
+        width:100%;
+    }
+    #musicList{
+        background-color:greenyellow;
+        opacity:.5;
+        
+        height:60%;
+        width:100%;
+    }
 }
-/***************************************/
+/*#endregion****************************/
 
-
-/*NAV*/
+/*#region NAV*/
 /***************************************/
 #nav_container::after{
     content:'';
@@ -412,10 +465,9 @@ li.li_item:hover, li.li_item_hidden:hover{
     position:absolute;
     z-index:200;
 }
-/***************************************/
+/*#endregion****************************/
 
-
-/*SIDE BAR*/
+/*#region SIDE BAR*/
 /***************************************/
 #sidemenu{
     position:fixed;
@@ -429,9 +481,9 @@ li.li_item:hover, li.li_item_hidden:hover{
     padding-top:10px;
     list-style:none;
 }
-/***************************************/
+/*#endregion****************************/
 
-/*VIEW*/
+/*#region VIEW*/
 /***************************************/
 #view{
     position:fixed;
@@ -439,9 +491,9 @@ li.li_item:hover, li.li_item_hidden:hover{
     height:100vh;
     z-index:1000;
 }
-/***************************************/
+/*#endregion****************************/
 
-/*DOWN ARROWS*/
+/*#region DOWN ARROWS*/
 /***************************************/
 .downArrows{
     width:150px;
@@ -526,13 +578,12 @@ li.li_item:hover, li.li_item_hidden:hover{
     50% {box-shadow: 0 0 30px blue;}
   }
 
-/***************************************/
+/*#endregion****************************/
 
-/*MOBILE*/
+/*#region MOBILE*/
 /***************************************/
-/***************************************/
+/*#endregion****************************/
 
-/*ARROWS ANIMATION*/
+/*#region ARROWS ANIMATION*/
 /***************************************/
-
-/***************************************/
+/*#endregion****************************/

@@ -25,6 +25,8 @@ $(document).ready(function(){
     $("#li_MusicMerch_hidden").click(function(){ScrollToHere($("#music"))});
     $("#li_Contact_hidden").click(function(){ScrollToHere($("#merch"))});
     CheckResize(false);
+
+    AddToCalenderInfo();
 });
 /*#endregion*/
 
@@ -183,6 +185,11 @@ function ScrollToHere(val){
     $('html, body').animate({
         scrollTop: val.offset().top
     }, 1000, 'swing');
+}
+function AddToCalenderInfo(){
+    for(var i = 0; i < 30; i++){
+        $("#calInfoBody ul").append("<li>BeardsOrNoBeards" + i + "</li>");
+    }
 }
 /*#endregion*/
 

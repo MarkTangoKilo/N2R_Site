@@ -1,30 +1,17 @@
-/*
-///HERE///
-    1) Get the faders to size and resize based on the position of the scrollTop() ALMOST THERE...
-    2) Get the faders to shut in the and slide inwards
-    3) Get the nav bar contents to have zero opacity
-    4) Get the nav bar to slide in
-    5) Rotate something around logo
-    6) Move log up
-    7) Bust the logo
-    8) Get the side window to open up upon clicking it with the same option available
-*/
-
-
-/*RESET DEFAULTS*/
+/*#region RESET DEFAULTS*/
 /***************************************/
 html, body, article, section, span, footer, nav, ul, li{
 	margin:0;
 	padding:0;
 }
-/***************************************/
+/*#endregion****************************/
 
-
-/*BASIC CONAINERS*/
+/*#region BASIC CONAINERS*/
 /***************************************/
 /*tags*/
 html{
     height:550vh;
+    width:100%;
     box-sizing:border-box;
     z-index:1;
 }
@@ -41,12 +28,15 @@ article{
 	width:100%;
     min-height:100vh;
     z-index:3;
+    /* AFTER ALL IMAGES ADDED, UNCOMMENT THIS SHIT
+        background-color:black;
+    */
 }
 section{
 	width:100%;
-	height:100vh;
     font-size:0px;
     z-index: 4;
+    height:100%;
 }
 span{
     display:inline-block;
@@ -57,200 +47,574 @@ footer{
     bottom:0;
     z-index:5;
 }
-/***************************************/
-
-
-/*SPECIAL CSS*/
-/***************************************/
-/*classes & ids*/
-#home, #dates, #merch, #music{
-	height:100vh;
+/*classes and id's*/
+#home, #dates, #merch, #music, #home_photo{
+    height:100vh;
+    width:100%;
+}#merch section, #music section #dates section{
+    height:100vh;
+    width:100%;
 }
-.smallcontainer{
-	height:100%;
-	width:50%;
-}
-/*home*/
+/*#endregion****************************/
+
+/*#region CUSTOM CSS*/
+/***************************************/
+/*#region home*/
 #logo_text{
 	/*... WHY!!!*/
 	padding-top:40vh;
 	min-height:20em;
 }
-/*about*/
-.pic{
-
-    background-color:black;
-    opacity:.5;
-	height:100%;
-	width:40%;
-	font-size:5em;
+#home{
+    background-color: rgba(157,75,16,1);
+    background-image: url("N2R_Pics/wide_main_no.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#about{
-	height:300vh;
+#home_photo{
+    background-image: url("N2R_Pics/n2rlogo.png");
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width:auto;
+}
+#home_text{
+    background-image: url("N2R_Pics/n2rtext.png");
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: 100% 100%;
+    opacity:.7;
+}
+/*conditional sizing*/
+@media only screen and (min-width:750px){
+    #home_photo{
+        top:5%;
+        height:35vw;
+        width:35vw;
+        max-width:400px;
+        max-height:400px;
+        min-width:325px;
+        min-height:325px;
+    }
+    #home_text{
+        bottom:15%;
+        width:80vw;
+        height:4.5vw;
+        max-width:925px;
+        max-height:52px;
+        min-width:600px;
+        min-height:34px;
+    }
+    #RobPic{
+        float:right;
+    }
+    #RobAbout{
+        float:left;
+    }
+}
+@media only screen and (max-width:749px) and (min-width:641px){
+    #home_photo{
+        top:5%;
+        height:300px;
+        width:300px;
+    }
+    #home_text{
+        bottom:15%;
+        width:80vw;
+        height:4.5vw;
+        min-width:600px;
+        min-height:34px;
+    }
+    #RobPic{
+        float:right;
+    }
+    #RobAbout{
+        float:left;
+    }
+}
+@media only screen and (max-width:640px){
+    #home_photo{
+        top:5%;
+        height:300px;
+        width:300px;
+    }
+    #home_text{
+        bottom:15%;
+        width:80vw;
+        height:4.5vw;
+    }
+    #RobPic{
+        float:left;
+    }
+    #RobAbout{
+        float:right;
+    }
+}
+/*#endregion*/
+/*#region about*/
+.pic{
+    background-color:black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .about{
-
+    font-size:0px;
     background-color:yellow;
-    opacity:.5;
-	height:100%;
-	width:60%;
-	font-size:5em;
+    position:relative;
+    padding:2%;
+    /*
+        why did this work here... before the fucking thing
+        went on and 
+    */
+    overflow:hidden;
 }
-/*dates*/
-#calendar{
+#bandAbout{
+    position: relative;
+    background-image: url("N2R_Pics/bandAbout.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media only screen and (min-width:751px){
+    #bandAbout{ background-image: url("N2R_Pics/bandAbout.jpg"); }
+    .pic{
+        height:100%;
+        width:50%;
+    }
+    .about{
+        height:100%;
+        width:50%;
+    }
+    #Rob{
+        float:right;
+    }
+    .aboutText{
+        font-size:18px;
+    }
+    .aboutPiece{
+        height:80vh;
+    }
+}
+@media only screen and (max-width:750px){
+    #bandAbout{ background-image: url("N2R_Pics/bandAbout_mobile.jpg"); }
+    .pic{
+        height:70%;
+        width:100%;
+    }
+    .about{
+        height:30%;
+        width:100%;
+    }
+    .aboutText{
+        font-size:14px;
+    }
+    .aboutPiece{
+        height:100vh;
+    }
+}
+#bandAbout{
+    height:100vh;
+}
+.aboutText{
+    background-color: rgba(157,75,16,.7);
+    height: 100%;
+    width: 100%;
+    z-index: 500;
+}
+#AboutBody{
+    /*
+        difference between absolute and relative is that 
+        absolute would make it so that the div is at the top, but
+        then pushed up 5%, but absolute makes it so that the div
+        is pushed down to the bottom like I told it to and then
+        pushed up 5%. Also, the position needs to be anything other 
+        than static or default in order for this to work, I don't 
+        know why...
+    */
+    position: absolute;
+    min-height:100px;
+    width:80%;
+    bottom:7%;
+    left:50%;
+    transform: translateX(-50%);
+    text-align:center;
+    background-color:rgba(50,50,50,.7);
+}
+#AboutBodyText{
+    font-size:20px;
+}
+.aboutPiece{
+    width:100%;
+    font-size:0px;
+    overflow:hidden;
+}
+#MarkPic{
+    background-image:url("N2R_Pics/Marks_Personal.jpg");
+}
+#RobPic{
+    background-image:url("N2R_Pics/Robs_Personal.jpg");
+}
+#StevePic{
+    background-image:url("N2R_Pics/Steves_Personal.jpg");
+}
+/*#endregion*/
+/*#region dates*/
+#dates{
 
-    background-color:red;
-    opacity:.5;
-	width:50%;
-	height:100%;
 }
-#calendarInfo{
-    
-    background-color:green;
-    opacity:.5;
-	width:50%;
-	height:100%;
+#calInfoInner{
+    height:100%;
+    width:100%;
+    padding:5%;
+    overflow:hidden;
 }
-/*merch*/
-#shirts{
-    
-    background-color:orange;
-    opacity:.5;
-	height:100%;
-	width:50%;
-}
-#otherthing{
+#calInfoHeader{
+    text-align: center;
+    font-size:50px;
+    width:100%;
+    height:55px;
     background-color:blue;
-    opacity:.5;
-	height:50%;
-	width:100%;
 }
-#anotherthing{
+#calInfoBody{
+    width:100%;
+    height:calc(100% - 50px);
+    border:2px solid red;
+    overflow-y:auto;
+}
+#calInfoBody ul{
+}
+#calInfoBody ul li{
+    position:relative;
+    width:100%;
+    height:45px;
+    background-color:red;
+    font-size:15px;
+}
+#conHeader{
+    text-align: center;
+    font-size:50px;
+    width:100%;
+    height:55px;
+    background-color:blue;
+}
+#contact{
+    overflow:hidden;
+}
+#conInner{
+    height:100%;
+    width:100%;
+    padding:5%;
+    overflow:hidden;
+}
+#conBody{
+    width:100%;
+    height:calc(100% - 50px);
+    border:2px solid blueviolet;
+    overflow-y:auto;
+}
+#conBody ul{
+}
+#conBody ul li{
+    position:relative;
+    width:100%;
+    height:45px;
+    background-color:red;
+    font-size:15px;
+}
+.socailMedia{
+    height:75px;
+    width:75px;
+    margin:10px;
+}
+@media only screen and (min-width:751px){
+    #contact{
+        background-color:red;
+        opacity:.5;
     
-    background-color:purple;
-    opacity:.5;
-	height:50%;
-	width:100%;
-}
-/*music*/
-#musicLogo{
+        width:50%;
+        height:100%;
+    }
+    #calendarInfo{
+        background-color:green;
+        opacity:.5;
     
-    background-color:magenta;
-    opacity:.5;
-	height:100%;
-	width:40%;
+        width:50%;
+        height:100%;
+    }
 }
-#musicList{
+@media only screen and (max-width:750px){
+    #contact{
+        background-color:red;
+        opacity:.5;
     
-    background-color:greenyellow;
-    opacity:.5;
-	height:100%;
-	width:60%;
+        width:100%;
+        height:50%;
+    }
+    #calendarInfo{
+        background-color:green;
+        opacity:.5;
+    
+        width:100%;
+        height:50%;
+    }
 }
-/***************************************/
+/*#endregion*/
+/*#region merch*/
+/*///HERE/// Get an svg logo and add it in her*/
+@media only screen and (min-width:751px){
+    #shirts{
+        background-color:orange;
+        background-image:url("N2R_Pics/tshirt.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100%;
+        width:50%;
+    }
+    .smallcontainer{
+        height:100%;
+        width:50%;
+    }
+    #otherthing{
+        background-color:blue;
+        opacity:.5;
+        height:50%;
+        width:100%;
+    }
+    #anotherthing{
+        
+        background-color:purple;
+        opacity:.5;
+        height:50%;
+        width:100%;
+    }
+}
+@media only screen and (max-width:750px){
+    #shirts{
+        background-color:orange;
+        background-image:url("N2R_Pics/tshirt.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:70%;
+        width:100%;
+    }
+    .smallcontainer{
+        height:60%;
+        width:100%;
+    }
+    #otherthing{
+        background-color:blue;
+        opacity:.5;
+    
+        height:50%;
+        width:100%;
+    }
+    #anotherthing{
+        
+        background-color:purple;
+        opacity:.5;
+        
+        height:50%;
+        width:100%;
+    }
+}
+/*#endregion*/
 
+/*#endregion****************************/
 
-/*NAV*/
+/*#region NAV*/
 /***************************************/
 #nav_container::after{
     content:'';
+    display:table;
     clear:both;
     z-index:100;
 }
-#nav{
-    z-index:110;
-    height:50px;
-    font-size:0px;
-    background-color:yellow;
-}
 #nav_container{
+    position:absolute;
     float:right;
-    width:100%;
     height:150px;
-    border-top-left-radius: 150px;
-    border-bottom-left-radius: 150px;
+    width:100%;
+    border-radius: 75px 0 0 75px;
     overflow:hidden;
+}
+#nav{
+    height:50px;
+    width:100%;
+    font-size:0px;
+    overflow:hidden;
+    background-color: yellow;
 }
 ul.ul_list{
     float:right;
-    height:50px;
+    height:100%;
 }
 li.li_item{
     font-size:25px;
     right:0px;
     float: right;
-    margin:0;
     width:20%;
     height:50px;
     text-align:center;
     padding-top:10px;
-    opacity:0.7;
     list-style:none;
 }
-li.li_item:hover{
+li.li_item:hover, li.li_item_hidden:hover{
     background-color:brown;
     opacity:1;
     cursor:pointer;
 }
+#topFader{
+    position: relative;
+    background-image:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,.5));
+}
+#botFader{
+    position: relative;
+    background-image:linear-gradient(to top, rgba(0,0,255,0), rgba(0,0,255,.5));
+}
 .fader{
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-#topfader{
-    background-image:linear-gradient(to top, rgba(0,0,255, 1), rgba(0,0,255, 0));
-}
-#bottomfader{
-    background-image:linear-gradient(to bottom, rgba(0,0,255, 1), rgba(0,0,255, 0));
-}
-.faderHolder{
-    width:100%;
     height:50px;
-    position:relative;
-    z-index:101;
+    z-index:100;
 }
-#smol_logo{
-    height:150px !important;
-    width:150px !important;
-    background-color:black;
-    position:absolute;
-    z-index:200 !important;
+#paddingBar{
+    position: relative;
+    opacity:0;
+    height:50px;
+}
+#logoButton{
+    height:150px;
+    width:150px;
     border-radius: 50%;
+    background-color: black;
+    position:absolute;
+    z-index:200;
 }
+/*#endregion****************************/
+
+/*#region SIDE BAR*/
 /***************************************/
-
-
-/*MOBILE*/
-/***************************************/
-@media screen and (max-width: 700px){
-
+#sidemenu{
+    position:fixed;
+    display:none;
+    background-color:yellow;
 }
-@media screen and (min-width: 700px){
-
+.li_item_hidden{
+    height:50px;
+    width:200px;
+    text-align:center;
+    padding-top:10px;
+    list-style:none;
 }
+/*#endregion****************************/
+
+/*#region VIEW*/
 /***************************************/
+#view{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    z-index:1000;
+}
+/*#endregion****************************/
 
-
-/*ANIMATIONS*/
+/*#region DOWN ARROWS*/
 /***************************************/
+.downArrows{
+    width:150px;
+    height:75px;
+    position:absolute;
+    bottom:24%;
+    opacity:.7;
+    border-radius: 50%;
+    border:2px solid transparent !important;
+    z-index:1000;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.downArrows:hover {
+    border-radius: 50%;
+    border:2px solid grey !important;
+    animation: swell 1s infinite;
+}
+.downArrow{
+    content:url("N2R_Pics/down_arrow.png");
+    width:100px;
+    position:relative;
+    height:15px;
+    left: 50%;
+    transform: translateX(-50%);
+    top:15%;
+    margin:0;
+    padding:0;
+}
+#leftDownArrows{
+    float:left;
+    left:20%;
+}
+#rightDownArrows{
+    float:right;
+    right:20%;
+}
+
+/*animations*/
+.topDownArrow{
+    animation: topDownArrowFade 1s infinite !important;
+}
+.midDownArrow{
+    animation: midDownArrowFade 1s infinite !important;
+}
+.botDownArrow{
+    animation: botDownArrowFade 1s infinite !important;
+}
+
+@keyframes topDownArrowFade{
+    0%{ opacity:.7; }
+    50%{ opacity:.2; }
+    100%{ opacity:.7; }
+}
+@keyframes midDownArrowFade{
+    0%{ opacity:.45; }
+    25%{ opacity:.7; }
+    50%{ opacity:.45; }
+    75%{ opacity:.2; }
+    100%{ opacity:.45; }
+}
+@keyframes botDownArrowFade{
+    0%{ opacity:.2; }
+    50%{ opacity:.7; }
+    100%{ opacity:.2; }
+}
+
+.tooltip{
+    position:absolute;
+    text-align:center;
+    border-radius:2px;
+    z-index:1001;
+    margin-right:-50%;
+}
+@keyframes swell{
+    0%{ box-shadow: 0 0 5px darkgrey;}
+    50%{ box-shadow: 0 0 20px darkgrey;}
+    100%{ box-shadow: 0 0 5px darkgrey;}
+}
+
+@keyframes mymove {
+    50% {box-shadow: 0 0 30px blue;}
+  }
+
+/*#endregion****************************/
+
+/*#region MOBILE*/
 /***************************************/
+/*#endregion****************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*NOTES*/
-/* SUPER FUCKING IMPORTANT:
-originally this didn't work for the animation. It was lmost like it was just
-ignoring it. The stuff that I put BEFORE the animation represents the INITAL state
-of what the thing ALREADY is, and since I know that it is going to be 0%, then I 
-need to set it to 0%!
-*/
+/*#region ARROWS ANIMATION*/
+/***************************************/
+/*#endregion****************************/

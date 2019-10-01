@@ -8,96 +8,118 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-	<article id="home">
+	<!---->
+	<div id="view">
+		<span id="sidemenu">
+			<ul id="ul_list_hidden">
+				<li id="li_Contact_hidden" class="li_item_hidden">Contact</li>
+				<li id="li_Dates_hidden" class="li_item_hidden">Dates</li>
+				<li id="li_About_hidden" class="li_item_hidden">About</li>
+			</ul>
+		</span>
 		<section>
-			<div id="logo_text">
-				
-			</div>
+			<div id="logo_text"></div>
 		</section>
-			<!--NAV BAR-->
-			<div id="nav_container">
-				<div id="smol_logo"></div>
-				<div id="topfaderHolder" class="faderHolder">
-					<div id="topfader" class="fader"></div>
-				</div>
-				<nav id="nav">
-					<ul id="ul_list">
-						<li id="li_Contact" class="li_item">Contact</li>
-						<li id="li_Music" class="li_item">Tunes/Merch</li>
-						<li id="li_Dates" class="li_item">Dates</li>
-						<li id="li_About" class="li_item">About</li>
-					</ul>
-				</nav>
-				<div id="botfaderHolder" class="faderHolder">
-					<div id="bottomfader" class="fader"></div>
-				</div>
-			</div>
-			<!--BUTTON TO SHOW THE MENU-->
+
+		<div id="nav_container">
+			<div id="logoButton"></div>
+			<div id="topFader" class="fader bar"></div>
+			<nav id="nav" class="bar">
+				<ul id="ul_list">
+					<li id="li_Contact" class="li_item">Contact</li>
+					<li id="li_Dates" class="li_item">Dates</li>
+					<li id="li_About" class="li_item">About</li>
+				</ul>
+			</nav>
+			<div id="botFader" class="fader bar"></div>
+		</div>
+	</div>
+	<!---->
+
+
+	<article id="home">
+		<section id="home_photo"></section>
+		<div class="downArrows">
+			<img class="downArrow topDownArrow">
+			<img class="downArrow midDownArrow">
+			<img class="downArrow botDownArrow">
+		</div>
+		<section id="home_text"></section>
 	</article>
 	<article id="about">
-		<section id="Mark">
-			<span class="pic">
+		<section id="bandAbout">
+			<div id="AboutBody">
+				<div id="AboutBodyText">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi esse vero nostrum fugit ad, vitae maiores molestias excepturi. Eveniet officiis quos non quasi fuga. Veritatis repellendus error deserunt nemo rerum.
+				</div>
+			</div>
+		</section>
+		<section id="Mark" class="aboutPiece">
+			<span id="MarkPic" class="pic">
 
 			</span>
 			<span class="about">
-
+				<div class="aboutText">
+					Mark is the latest member to join the band. His professional music career first started as lead guitar in the band "Take Two". During their debut act, they had managed to score third place out of 25 bands in a Battle of the Bands hosted at NAIT's Nest. The group was short lived, but Mark quickly shifted gears and joined various other groups as a bassist and continued to play live shows. The groups that he has been a part of have headlined venues such as: The Starlight Room, Brixx Bar and Grill, The Studio, The Pawnshop, DV8 and more in the Edmonton Area. Mark was invited into the group through Drummer Ryan Crampton, and the rest is history. Mark's musical influences span from funky blues, to symphonic power metal and everything in between, but his favourite professional bass influence is Pino Palladino for his work on John Mayer's Continuum.
+				</div>
 			</span>
 		</section>
-		<section id="Rob">
-			<span class="about">
-				
-			</span>
-			<span class="pic">
+		<section id="Rob" class="aboutPiece">
+			<span id="RobPic" class="pic">
 
+			</span>
+			<span class="about">
+				<div id="RobAbout" class="aboutText">
+					A Multi instrumentalist and producer engineer, Robert’s journey began with the guitar over 12 years ago. Robert has continued to branch out on different instruments to round out his musical development. No stranger to the stage, Robert has been performing, writing, and recording with local Edmonton bands his entire adult life and continues to stretch his skills in video production and marketing as a Youtuber, Educator, and Entrepreneur. He also wrote and published a best selling book on the Recording arts. Robert has been close friends with his N2R bandmates for over a decade, who have all shared the stage together in several other bands. Aside from music, a Robert enjoys BBQs with the boys and crafting homemade Mead!
+				</div>
 			</span>
 		</section>
-		<section id="Steve">
-			<span class="pic">
-
+		<section id="Steve" class="aboutPiece">
+			<span id="StevePic" class="pic">
+				
 			</span>
 			<span class="about">
-				
+				<div class="aboutText">
+					Born in Edmonton, Lover of cars, and a Kickass mechanic. Steve has been restoring a ’68 Plymouth Sport Fury in his spare time. His mechanical skills always make sure the other members of the band get to practice safely and on time. Steven has a long history of playing the drums ever since the fourth grade when he refused to play the recorder and instead wanted to play the drums. (a born drummer is often stubborn) After getting his first drum kit in the sixth grade Steven brought it to school for music class. (The class’ ears are still ringing) Over the years, Steve has played in several projects with both Mark and Robert. Together they have worked hard to put a band together. North River Revival represents the aftermath and amalgamation of those past projects.
+				</div>
 			</span>
 		</section>
 	</article>
 	<article id="dates">
 		<section>
-			<span id="calendar">
-
+			<span id="contact">
+				<div id="conInner">
+					<div id="conHeader">Contact</div>
+					<div id="conBody">
+						<a id="spotify" href=""><img class="socailMedia" src="N2R_Pics/social media/spotify.svg"></a>
+						<a id="instagram" href=""><img class="socailMedia" src="N2R_Pics/social media/instagram.svg"></a>
+						<a id="bandcamp" href=""><img class="socailMedia" src="N2R_Pics/social media/bandcamp.svg"></a>
+						<a id="twitter" href=""><img class="socailMedia" src="N2R_Pics/social media/twitter.svg"></a>
+						<a id="facebook" href=""><img class="socailMedia" src="N2R_Pics/social media/facebook.svg"></a>
+					</div>
+				</div>
 			</span>
 			<span id="calendarInfo">
-
-			</span>
-		</section>
-	</article>
-	<article id="music">
-		<section>
-			<span id="musicLogo">
-
-			</span>
-			<span id="musicList">
-				
+				<div id="calInfoInner">
+					<div id="calInfoHeader">Dates</div>
+					<div id="calInfoBody"><ul></ul></div>
+				</div>
 			</span>
 		</section>
 	</article>
 	<article id="merch">
 		<section>
-			<span id="shirts">
-
-			</span>
+			<span id="shirts"></span>
 			<span class="smallcontainer">
 				<span id="otherthing">
-
 				</span>
 				<span id="anotherthing">
-
 				</span>
 			</span>
 		</section>
 	</article>
 	<footer>
 
-	</footer>
+	</footer><!---->
 </body>
-<!--script>CheckResize();</script-->
 </html>

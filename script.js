@@ -1,168 +1,199 @@
-//value in pixels of where the user already is
+/*#region CLASS LEVEL ITEMS*/
+//current dimensions of the page
 var curr_spot;
-//current height in pixels for window
 var spot_height;
-//current width in pixels for window
 var spot_width;
-//true when skinny browser or on mobile device
-var bMobilized = new Boolean(false);
-//true when the bar is fixed at the top
-var bAlreadyFixed = new Boolean(false);
-//minimum in width before bMobilized is changed
-var iMinWindowSize = 700;
-
-$(document).ready(function () {
+//booleans dealing with current state of the js
+var bMobile = new Boolean(false);
+var bPastMain = new Boolean(true);
+var bHiddenNavOpen = new Boolean(false);
+//booleans dealing with current state of the page
+var bFixed = new Boolean(true);
+var bMobilized = new Boolean(true);
+$(document).ready(function(){
     $(document).scroll(CheckScroll);
     $(window).resize(CheckResize);
-    CheckResize();
-    $("#li_Home").click(function(){ScrollToHere(0)});
-    $("#li_About").click(function(){ScrollToHere(1)});
-    $("#li_Dates").click(function(){ScrollToHere(4)});
-    $("#li_Music").click(function(){ScrollToHere(5)});
-    $("#li_Contact").click(function(){ScrollToHere(6)});
+    $(".downArrows").click(function(){ScrollToHere($("#about"))});
+    $("#logoButton").click(CheckSideBar);
+    $("#view").click(CloseSideBar);
+    $("#li_About").click(function(){ScrollToHere($("#about"))});
+    $("#li_Dates").click(function(){ScrollToHere($("#dates"))});
+    $("#li_MusicMerch").click(function(){ScrollToHere($("#music"))});
+    $("#li_Contact").click(function(){ScrollToHere($("#merch"))});
+    $("#li_About_hidden").click(function(){ScrollToHere($("#about"))});
+    $("#li_Dates_hidden").click(function(){ScrollToHere($("#dates"))});
+    $("#li_MusicMerch_hidden").click(function(){ScrollToHere($("#music"))});
+    $("#li_Contact_hidden").click(function(){ScrollToHere($("#merch"))});
+    CheckResize(false);
+
+    AddToCalenderInfo();
 });
+/*#endregion*/
 
-//checks to see what needs to be done after scrolling
+/*#region ALL OF THE CHECKS */
+function GetDimensions(){
+    //dimensions
+    curr_spot = $(window).scrollTop();
+    spot_height = $(window).height();
+    spot_width = $(window).width();
+    
+    bPastMain = curr_spot > spot_height - $("#nav_container").height() ? true : false;
+    bMobile = spot_width < 700 ? true : false;
+    bHiddenNavOpen = $("#sidemenu").width() > 0 ? true : false;
+    //basic methods
+    LogoFade(bPastMain);
+    Faders();
+}
+
+function CheckResize(bCheck = true){
+    GetDimensions();
+
+    if(bMobile && (bCheck ? !bMobilized : true)){
+        Mobilize(bMobilized = true);
+    }
+    else if(!bMobile && (bCheck ? bMobilized : true)){
+        Mobilize(bMobilized = false);
+    }
+
+    if(!bMobile){
+        if(bPastMain && (bCheck ? !bFixed : true)){
+            ChangeBoxSize(bFixed = true);
+        }
+        else if(!bPastMain){
+            ChangeBoxSize(bFixed = false);
+        }
+    }
+}
+
 function CheckScroll(){
-    curr_spot = $(window).scrollTop();
-    spot_height = $(window).height();
-    spot_width = $(window).width();
+    GetDimensions();
 
-    
-    //check fader bars
-    FaderBarCheck();
-    
-    //check to see if I need to get the page into mobile mode
-    if(!bMobilized && $(window).width() <= iMinWindowSize){
-        NavBarMode(true);
+    if(bPastMain && !bFixed){
+        ChangeBoxSize(bFixed = true);
     }
-    else if (bMobilized && $(window).width() > iMinWindowSize){
-        NavBarMode(false);
-    }
-
-    //check to see if we need 
-    if(!bAlreadyFixed && curr_spot > spot_height - $("#nav_container").height()) {
-        NavBarPos(false);
-    }
-    else if(bAlreadyFixed && curr_spot <= spot_height - $("#nav_container").height()){
-        NavBarPos(true);
+    else if(!bPastMain){
+        ChangeBoxSize(bFixed = false);
     }
 }
 
-//checks to see what needs to be done on a window resize
-function CheckResize(){
-    curr_spot = $(window).scrollTop();
-    spot_height = $(window).height();
-    spot_width = $(window).width();
-
-    //check fader bars
-    FaderBarCheck();
-
-    ///NAV BAR OR NAV SIDE WINDOW
-    if($(window).width() <= iMinWindowSize) {
-        NavBarMode(true);
-    }
-    else {
-        NavBarMode(false);
-    }
-
-    //check to see if we need 
-    if(curr_spot > spot_height - $("#nav_container").height()) {
-        NavBarPos(false);
-    }
-    else {
-        NavBarPos(true);
-    }
-}
-
-//basically used for sticky nav bar function
-function NavBarPos(bFixed) {
-    //if you're below the first article
-    if (!bFixed){
-        $("#nav_container").css({
-            'position': 'fixed',
-            'top': '0px',
-            'z-index': 100
-        });
-    }
-    //if you're above the first article
-    else if (bFixed){
-        $("#nav_container").css({
-            'position': 'absolute',
-            'bottom': 0 + '%',
-            'top':spot_height - $("#nav_container").height() + 'px',
-            'z-index': 100
-        });
-    }
-    bAlreadyFixed = !bFixed;
-}
-
-function FaderBarCheck(){
-    //fader bar height
-    if(curr_spot === 0){
-        FaderSize(true);
-    }
-    else if(curr_spot < spot_height - $("#nav_container").height()) {
-        FaderSize(false);
-    }
-    else {
-        FaderSize(true);
-    }
-}
-
-//will manipulate the height of the two faders
-function FaderSize(bForce){
-    //placeholder for the height value of the fader
-    var y;
-
-    //bForce represents if I want to bother calculating it or not
-    if(!bForce){
-        y = curr_spot * $(".faderHolder").height()/spot_height;
-        $("#topfaderHolder").height(y);
-        $("#botfaderHolder").height($(".faderHolder").height() - y);
+function CheckSideBar(){
+    GetDimensions();
+    if(bMobile){
+        if(!bHiddenNavOpen){
+            ClickLogo(false);
+        }
     }
     else{
-        if(curr_spot < spot_height){
-            $("#topfaderHolder").height($(".faderHolder").height());
-            $("#botfaderHolder").height(0);
-        }
-        else{
-            $("#topfaderHolder").height(0);
-            $("#botfaderHolder").height($(".faderHolder").height());
-        }
+        ScrollToHere($("#home"));
     }
 }
-//will switch the bar between mobile mode and desktop mode
-function NavBarMode(bMakeMobile){
-    if(bMakeMobile) {
-        //STEP 1:   shrink the two faders and make the text opacity go to zero
+/*#endregion*/
 
-        //STEP 2:   jam the nav bar into the circle, and make something spin around it
-        //          and make it burst out a bit and back in
-
-        //STEP 3:   slide it up to the top of the screen and fix it there
-
-        //STEP 4:   get a shine on the logo
-
+/*#region ALL OF THE BIG CHANGES */
+function ChangeBoxSize(bFixIt) {
+    $("#logoButton").css({'opactiy': 1});
+    //if you're below the first article
+    if (bFixIt){
+        $("#nav_container").css({
+            'top': '0px',
+            'opacity':'1'
+        });
+        bFixIt = true;
     }
-    else {
-        //STEP 1:   bring it down to where it needs to be
-
-        //STEP 2:   shoot out the navbar
-
-        //STEP 3:   add sliders
-
+    //if you're above the first article
+    else if (!bFixIt){
+        $("#nav_container").css({
+            'top': (spot_height - $("#nav_container").height() - curr_spot) + 'px',
+            'opacity': curr_spot/spot_height
+        });
+        bFixIt = false;
     }
-    bMobilized = !bMakeMobile;
+    
+}
+function Mobilize(bMob) {
+    if(bMob){
+        $(".fader").animate({opacity: '0'}, 150,
+            function(){
+                $("#nav").animate({width:"0px"}, 150,
+                function(){
+                    $("#nav_container").animate({top:0}, 150)
+        })});
+    }
+    else{
+        $("#nav_container").animate({bottom:0}, 150, 
+            function(){
+                $("#nav").animate({width:"100%"}, 250,
+                function(){
+                    $(".fader").animate({opacity: '1'}, 250)}
+        );});
+        ClickLogo(true);
+    }
+}
+/*#endregion*/
+
+/*#region ALL OF THE NAV BAR CHANGES */
+function Faders(){
+    if(!bPastMain){
+        var v = $("#nav").height()*curr_spot/spot_height * 2;
+        $("#topFader").height(($("#nav").height()) * 2 - v);
+        $("#botFader").height(v);
+        
+    }   
+    else{
+        $("#topFader").height(0);
+        $("#botFader").height($("#nav").height() * 2);
+    }
 }
 
-//scrolls to a certain position
+function LogoFade(bFixIt){
+    if(bFixIt){
+        $("#logoButton").css({ 'opacity': 1 });
+    }
+    else{
+        $("#logoButton").css({ 'opacity': curr_spot/spot_height});
+    }
+}
+
+function ClickLogo(bShrink){
+    ///so why the fuck won't this work when I nest these functions???
+    ///obviously it's race conditions, but... why...?
+    ///ALSO if I cut things off and have a circle too big, I get some REALLY cool effects
+    if(bShrink){
+        $(".li_item_hidden").fadeOut(500);
+        $("#sidemenu").animate({width:'0'}, 500);
+        $("#logoButton").animate({left:'0', height:'150px', width:'150px'}, 500,
+        function(){
+            bHiddenNavOpen = !bShrink;});
+    }
+    else{
+        $("#sidemenu").animate({width:'200px'}, 500);
+        $("#logoButton").animate({left:'200px', height:'50px', width:'50px'}, 500);
+        $(".li_item_hidden").fadeIn(500, function(){
+            bHiddenNavOpen = !bShrink;});
+    }
+}
+
+function CloseSideBar(){
+    if(bHiddenNavOpen){
+        ClickLogo(true);
+    }
+}
+/*#endregion*/
+
+/*#region ACCESSORY METHODS */
 function ScrollToHere(val){
-    spot_height = $(window).height();
-    var iTargetValue = val * spot_height;
-
-    //$('html, body').animate({scrollTop: iTargetValue}, 1000);
     $('html, body').animate({
-        scrollTop: iTargetValue
+        scrollTop: val.offset().top
     }, 1000, 'swing');
 }
+function AddToCalenderInfo(){
+
+
+    for(var i = 0; i < 3; i++){
+        $("#calInfoBody ul").append("<li>BeardsOrNoBeards" + i + "</li>");
+    }
+}
+/*#endregion*/
+
+/*background-color: rgba(171, 185, 192, 1)*/
+/*background-color: rgba(50, 78, 95, 1)*/

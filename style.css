@@ -4,6 +4,10 @@ html, body, article, section, span, footer, nav, ul, li{
 	margin:0;
 	padding:0;
 }
+/*
+    left: 50%;
+    transform: translateX(-50%);
+*/
 /*#endregion****************************/
 
 /*#region BASIC CONAINERS*/
@@ -90,7 +94,6 @@ footer{
     background-size: 100% 100%;
     opacity:.7;
 }
-/*conditional sizing*/
 @media only screen and (min-width:750px){
     #home_photo{
         top:5%;
@@ -366,7 +369,18 @@ footer{
 }
 /*#endregion*/
 /*#region merch*/
-/*///HERE/// Get an svg logo and add it in her*/
+#merch{
+    font-size:0px;
+    overflow:hidden;
+}
+#otherthing{
+    font-size:40px;
+    padding:20px;
+    text-align:center;
+}
+#anotherthing{
+}
+
 @media only screen and (min-width:751px){
     #shirts{
         background-color:orange;
@@ -375,11 +389,16 @@ footer{
         background-repeat: no-repeat;
         background-size: cover;
         height:100%;
-        width:50%;
+        width:100%;
+    }
+    #shirtsParent{
+        position:relative;
+        height:100%;
+        width:70%;
     }
     .smallcontainer{
         height:100%;
-        width:50%;
+        width:30%;
     }
     #otherthing{
         background-color:blue;
@@ -388,7 +407,6 @@ footer{
         width:100%;
     }
     #anotherthing{
-        
         background-color:purple;
         opacity:.5;
         height:50%;
@@ -402,9 +420,24 @@ footer{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        height:100%;
+        width:100%;
+        max-width:500px;
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #shirtsParent{
+        position:relative;
         height:70%;
         width:100%;
     }
+    /*#shirts{
+        height:70%;
+        width:100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }/**/
     .smallcontainer{
         height:60%;
         width:100%;

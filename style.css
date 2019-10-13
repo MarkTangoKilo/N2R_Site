@@ -302,12 +302,6 @@ footer{
     position:relative;
     background-color:rgba(171,83,20,.7);
 }
-#contact{
-    overflow:hidden;
-}
-#conWrapper{
-    
-}
 #con{
     font-size:0;
     width:380px;
@@ -316,7 +310,6 @@ footer{
     overflow:hidden;
     background-color: rgba(197,200,201,1);
     position:absolute;
-    bottom:75px;
 }
 .socailMedia{
     height:75px;
@@ -328,39 +321,11 @@ footer{
     width:75px !important;
 }
 @media only screen and (min-width:751px){
-    #contact{
-        background-color:red;
-        opacity:.5;
-    
-        width:50%;
-        height:100%;
-    }
-    #calendarInfo{
-        background-color:green;
-        opacity:.5;
-    
-        width:50%;
-        height:100%;
-    }
     #con{
         right:10%;
     }
 }
 @media only screen and (max-width:750px){
-    #contact{
-        background-color:red;
-        opacity:.5;
-    
-        width:100%;
-        height:50%;
-    }
-    #calendarInfo{
-        background-color:green;
-        opacity:.5;
-    
-        width:100%;
-        height:50%;
-    }
     #con{
         left:50%;
         transform:translateX(-50%);
@@ -473,7 +438,7 @@ footer{
     position:absolute;
     float:right;
     height:150px;
-    width:100%;
+    width:100vw;
     border-radius: 75px 0 0 75px;
     overflow:hidden;
 }
@@ -551,8 +516,6 @@ li.li_item:hover, li.li_item_hidden:hover{
 /***************************************/
 #view{
     position:fixed;
-    width:100vw;
-    height:100vh;
     z-index:1000;
 }
 /*#endregion****************************/

@@ -1,3 +1,26 @@
+/*#region NOTES
+    DOMINANT COLOURS:
+        Dark Reddish Brown
+        #823e0c
+        rgba(130,62,12,1)
+
+        Silver
+        #c5c8c9
+        rgba(197,200,201,1)
+
+        Dark Grey Blue
+        #274252
+        rgba(39,66,82,1)
+
+        Light Blue	
+        #7496ad	
+        rgba(116,150,173,1)
+
+        Lighter Reddish Brown
+        #ab5314
+        rgba(171,83,20,1)
+#endregion*/
+
 /*#region RESET DEFAULTS*/
 /***************************************/
 html, body, article, section, span, footer, nav, ul, li{
@@ -18,6 +41,7 @@ html{
     width:100%;
     box-sizing:border-box;
     z-index:1;
+    font-family: Arial, Helvetica, sans-serif;
 }
 *, *:before, *:after{
     /*for the box model fix*/
@@ -27,6 +51,7 @@ body{
 	height:100%;
     width:100%;
     z-index:2;
+    background-color:rgba(0,0,0,.7);
 }
 article{
 	width:100%;
@@ -168,9 +193,10 @@ footer{
 }
 .about{
     font-size:0px;
-    background-color:yellow;
+    background-color:#283902;
     position:relative;
     padding:2%;
+    opacity:.9;
     /*
         why did this work here... before the fucking thing
         went on and 
@@ -183,6 +209,54 @@ footer{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#bandAbout{
+    height:100vh;
+}
+.aboutText{
+    height: 100%;
+    width: 100%;
+    z-index: 500;
+    color: #274252;
+    /*background-color:rgba(116,150,173,1);*/
+    background-color:rgba(116,150,173,.9);
+}
+#AboutBody{
+    /*
+        difference between absolute and relative is that 
+        absolute would make it so that the div is at the top, but
+        then pushed up 5%, but absolute makes it so that the div
+        is pushed down to the bottom like I told it to and then
+        pushed up 5%. Also, the position needs to be anything other 
+        than static or default in order for this to work, I don't 
+        know why...
+    */
+    position: absolute;
+    min-height:100px;
+    width:80%;
+    bottom:7%;
+    left:50%;
+    transform: translateX(-50%);
+    text-align:center;
+    background-color:rgba(197,200,201,.7);
+}
+#AboutBodyText{
+    font-size:20px;
+    color:rgba(39,66,82,1);
+}
+.aboutPiece{
+    width:100%;
+    font-size:0px;
+    overflow:hidden;
+}
+#MarkPic{
+    background-image:url("N2R_Pics/Marks_Personal.jpg");
+}
+#RobPic{
+    background-image:url("N2R_Pics/Robs_Personal.jpg");
+}
+#StevePic{
+    background-image:url("N2R_Pics/Steves_Personal.jpg");
 }
 @media only screen and (min-width:751px){
     #bandAbout{ background-image: url("N2R_Pics/bandAbout.jpg"); }
@@ -199,6 +273,7 @@ footer{
     }
     .aboutText{
         font-size:18px;
+        padding:10px;
     }
     .aboutPiece{
         height:80vh;
@@ -221,119 +296,36 @@ footer{
         height:100vh;
     }
 }
-#bandAbout{
-    height:100vh;
-}
-.aboutText{
-    background-color: rgba(157,75,16,.7);
-    height: 100%;
-    width: 100%;
-    z-index: 500;
-}
-#AboutBody{
-    /*
-        difference between absolute and relative is that 
-        absolute would make it so that the div is at the top, but
-        then pushed up 5%, but absolute makes it so that the div
-        is pushed down to the bottom like I told it to and then
-        pushed up 5%. Also, the position needs to be anything other 
-        than static or default in order for this to work, I don't 
-        know why...
-    */
-    position: absolute;
-    min-height:100px;
-    width:80%;
-    bottom:7%;
-    left:50%;
-    transform: translateX(-50%);
-    text-align:center;
-    background-color:rgba(50,50,50,.7);
-}
-#AboutBodyText{
-    font-size:20px;
-}
-.aboutPiece{
-    width:100%;
-    font-size:0px;
-    overflow:hidden;
-}
-#MarkPic{
-    background-image:url("N2R_Pics/Marks_Personal.jpg");
-}
-#RobPic{
-    background-image:url("N2R_Pics/Robs_Personal.jpg");
-}
-#StevePic{
-    background-image:url("N2R_Pics/Steves_Personal.jpg");
-}
 /*#endregion*/
 /*#region dates*/
 #dates{
-
-}
-#calInfoInner{
-    height:100%;
-    width:100%;
-    padding:5%;
-    overflow:hidden;
-}
-#calInfoHeader{
-    text-align: center;
-    font-size:50px;
-    width:100%;
-    height:55px;
-    background-color:blue;
-}
-#calInfoBody{
-    width:100%;
-    height:calc(100% - 50px);
-    border:2px solid red;
-    overflow-y:auto;
-}
-#calInfoBody ul{
-}
-#calInfoBody ul li{
     position:relative;
-    width:100%;
-    height:45px;
-    background-color:red;
-    font-size:15px;
-}
-#conHeader{
-    text-align: center;
-    font-size:50px;
-    width:100%;
-    height:55px;
-    background-color:blue;
+    background-color:rgba(171,83,20,.7);
 }
 #contact{
     overflow:hidden;
 }
-#conInner{
-    height:100%;
-    width:100%;
-    padding:5%;
+#conWrapper{
+    
+}
+#con{
+    font-size:0;
+    width:380px;
+    height:95px;
+    border-radius:75px;
     overflow:hidden;
-}
-#conBody{
-    width:100%;
-    height:calc(100% - 50px);
-    border:2px solid blueviolet;
-    overflow-y:auto;
-}
-#conBody ul{
-}
-#conBody ul li{
-    position:relative;
-    width:100%;
-    height:45px;
-    background-color:red;
-    font-size:15px;
+    background-color: rgba(197,200,201,1);
+    position:absolute;
+    bottom:75px;
 }
 .socailMedia{
     height:75px;
     width:75px;
     margin:10px;
+}
+.socailMediaLink{
+    height:75px !important;
+    width:75px !important;
 }
 @media only screen and (min-width:751px){
     #contact{
@@ -349,6 +341,9 @@ footer{
     
         width:50%;
         height:100%;
+    }
+    #con{
+        right:10%;
     }
 }
 @media only screen and (max-width:750px){
@@ -366,6 +361,10 @@ footer{
         width:100%;
         height:50%;
     }
+    #con{
+        left:50%;
+        transform:translateX(-50%);
+    }
 }
 /*#endregion*/
 /*#region merch*/
@@ -379,6 +378,7 @@ footer{
     text-align:center;
 }
 #anotherthing{
+
 }
 
 @media only screen and (min-width:751px){
@@ -459,7 +459,6 @@ footer{
     }
 }
 /*#endregion*/
-
 /*#endregion****************************/
 
 /*#region NAV*/
@@ -483,7 +482,7 @@ footer{
     width:100%;
     font-size:0px;
     overflow:hidden;
-    background-color: yellow;
+    background-color: rgba(197,200,201, .9);
 }
 ul.ul_list{
     float:right;
@@ -500,17 +499,18 @@ li.li_item{
     list-style:none;
 }
 li.li_item:hover, li.li_item_hidden:hover{
-    background-color:brown;
+    background-color: rgb(39,66,82);
     opacity:1;
     cursor:pointer;
+    color: #c5c8c9;
 }
 #topFader{
     position: relative;
-    background-image:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,.5));
+    background-image:linear-gradient(to bottom, rgba(39,66,82,0), rgba(39,66,82,.7));
 }
 #botFader{
     position: relative;
-    background-image:linear-gradient(to top, rgba(0,0,255,0), rgba(0,0,255,.5));
+    background-image:linear-gradient(to top,  rgba(39,66,82,0), rgba(39,66,82,.7));
 }
 .fader{
     height:50px;

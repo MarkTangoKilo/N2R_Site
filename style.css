@@ -310,6 +310,7 @@ footer{
     overflow:hidden;
     background-color: rgba(197,200,201,1);
     position:absolute;
+    bottom:75px;
 }
 .socailMedia{
     height:75px;
@@ -501,14 +502,22 @@ li.li_item:hover, li.li_item_hidden:hover{
 #sidemenu{
     position:fixed;
     display:none;
-    background-color:yellow;
+    width:200px;
+    height:150px;
+    z-index:1001;
 }
 .li_item_hidden{
     height:50px;
-    width:200px;
+    width:100%;
     text-align:center;
     padding-top:10px;
     list-style:none;
+    color:rgba(39,66,82,1);
+    background-color: rgba(197,200,201,1);
+}
+.li_item_hidden:hover{
+    background-color:rgba(39,66,82,1);
+    color: rgba(197,200,201,1);
 }
 /*#endregion****************************/
 

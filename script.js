@@ -125,7 +125,7 @@ function Mobilize(bMob) {
                 $("#nav").animate({width:"100%"}, 250,
                 function(){
                     $(".fader").animate({opacity: '1'}, 250)}
-        );});
+        )});
         ClickLogo(true);
     }
 }
@@ -135,7 +135,7 @@ function Mobilize(bMob) {
 function Faders(){
     if(!bPastMain){
         var v = $("#nav").height()*curr_spot/spot_height * 2;
-        $("#topFader").height(($("#nav").height()) * 2 - v);
+        $("#topFader").height(($("#nav").height()) * 2 - v - 20);
         $("#botFader").height(v);
         
     }   
